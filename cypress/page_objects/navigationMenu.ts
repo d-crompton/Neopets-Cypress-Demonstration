@@ -1,12 +1,13 @@
+import { navigationBar } from "./navigationBar";
+
 class NavigationMenu {
   selectors = {
-    divPetIcon: ".nav-pet-menu-icon__2020",
     divInventoryIcon: ".nav-inventory-icon",
   };
 
   navigateTo(destination: string) {
     // Open the Navigation Menu
-    cy.get(navigationMenu.selectors.divPetIcon).click();
+    cy.get(navigationBar.selectors.divPetIcon).click();
     // Click the destination link
     switch (destination) {
       case "inventory":
