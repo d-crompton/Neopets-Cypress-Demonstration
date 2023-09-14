@@ -3,16 +3,25 @@ import { navigationBar } from "../navigationBar";
 
 class Explore {
   selectors = {
+    aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
     aTyrannia: 'a[href="prehistoric/index.phtml"]:nth-of-type(1)',
+  };
+
+  strings = {
+    mysteryIsland: "MysteryIsland",
+    tyrannia: "Tyrannia",
   };
 
   explore(destination: string) {
     cy.get(navigationBar.selectors.divExplore).click();
-    cy.wait(5000);
+    cy.wait(3000);
     // Resolve "obj.callOnLoad is not a function" error that appears
-    // Possible add a do while loop with a Try/Else inside.
-    // Add a wait in the else
-    console.log(this.selectors["a" + destination]);
+    // https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
+    Cypress.on("uncaught:exception", (err, runnable) => {
+      expect(err.message).to.include("obj.callOnLoad is not a function");
+      return false;
+    });
+
     cy.get(this.selectors["a" + destination]).click();
   }
 }

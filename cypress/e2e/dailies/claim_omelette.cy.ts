@@ -1,8 +1,8 @@
 // Spec to claim the Giant Omelette in Tyrannia
-import { login } from "../support/login";
-import { explore } from "../page_objects/explore/explore";
-import { tyranniaJungle } from "../page_objects/explore/TyranniaJungle";
-import { tyranniaPlateau } from "../page_objects/explore/TyranniaPlateau";
+import { login } from "../../support/login";
+import { explore } from "../../page_objects/explore/explore";
+import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
+import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
 
 describe("Claim Giant Omelette", () => {
   before(() => {
@@ -10,7 +10,7 @@ describe("Claim Giant Omelette", () => {
   });
 
   it("Claim Giant Omelette", () => {
-    explore.explore("Tyrannia");
+    explore.explore(explore.strings.tyrannia);
     cy.wait(3000);
     cy.get(tyranniaJungle.selectors.liPlateauLink).click();
     cy.wait(3000);
