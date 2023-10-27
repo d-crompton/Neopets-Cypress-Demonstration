@@ -17,11 +17,6 @@ class Explore {
     cy.wait(3000);
     // Resolve "obj.callOnLoad is not a function" error that appears
     // https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
-    Cypress.on("uncaught:exception", (err, runnable) => {
-      expect(err.message).to.include("obj.callOnLoad is not a function");
-      return false;
-    });
-
     cy.get(this.selectors["a" + destination]).click();
   }
 }
