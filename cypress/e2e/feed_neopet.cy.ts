@@ -1,13 +1,8 @@
 // Open inventory page and feed with the first food item in the Food tab
-import { login } from "../support/login";
 import { navigationMenu } from "../page_objects/navigationMenu";
 import { inventoryPage } from "../page_objects/inventory";
 
 describe("Open Inventory Page", () => {
-  before(() => {
-    login();
-  });
-
   it("Open Inventory", () => {
     // Open the Inventory
     navigationMenu.navigateTo("inventory");

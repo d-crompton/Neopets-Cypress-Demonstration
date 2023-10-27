@@ -5,10 +5,6 @@ import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
 
 describe("Claim Giant Omelette", () => {
-  before(() => {
-    login();
-  });
-
   it("Claim Giant Omelette", () => {
     explore.explore(explore.strings.tyrannia);
     cy.wait(3000);
