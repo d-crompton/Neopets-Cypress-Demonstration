@@ -14,7 +14,7 @@ class Explore {
 
   explore(destination: string) {
     cy.get(navigationBar.selectors.divExplore).click();
-    cy.wait(5000);
+    cy.wait(3000);
     // Resolve "obj.callOnLoad is not a function" error that appears
     // https://docs.cypress.io/guides/references/error-messages#Uncaught-exceptions-from-your-application
     cy.get(this.selectors["a" + destination]).click();
