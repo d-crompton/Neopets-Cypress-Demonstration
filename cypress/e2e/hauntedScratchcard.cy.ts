@@ -3,18 +3,26 @@ import { hauntedWoods } from "../page_objects/explore/HauntedWoods";
 import { explore } from "../page_objects/explore/explore";
 
 describe("Buy and scratch Scratchcard", () => {
-  it("Go to and Buy scratchcard", () => {
+  it("Buy and scratch Scratchcard", () => {
     // Navigate to scratchcard
     explore.explore(explore.strings.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liScratchcard).click();
-    cy.pause();
     // Buy scratchcard
     cy.get(hauntedWoods.selectors.btnBuyScratchcard).click();
-  });
-
-  it("Scratch scratchcard", () => {
-    // Select the scratchcard
+    // Check if you get redirected to error for buying too soon
+    cy.get("body").then((body) => {
+      if (
+        cy
+          .wrap(body)
+          .contains(hauntedWoods.strings.scratchcardGiveEverybodyElse)
+      ) {
+        throw new Error(
+          "Custom Error - You have already purchased a scratchcard in the past 2 hours"
+        );
+      }
+    });
+    // If not - Select the scratchcard
     cy.get(hauntedWoods.selectors.selectScratchcard).select(1);
     cy.get(hauntedWoods.selectors.btnScratch).click();
     // Loop through the Selectors and scratch the first 6 spots (top 2 rows)

@@ -14,6 +14,11 @@ class HauntedWoods {
     tdSpot5: "center > table table > tbody tr:nth-child(2) > td:nth-of-type(2)",
     tdSpot6: "center > table table > tbody tr:nth-child(2) > td:nth-of-type(3)",
   };
+
+  strings = {
+    scratchcardGiveEverybodyElse:
+      "Hey, give everybody else a chance to buy a scratchcard!!",
+  };
 }
 
 export const hauntedWoods = new HauntedWoods();
