@@ -10,6 +10,7 @@ describe("Buy and scratch Scratchcard", () => {
     cy.get(hauntedWoods.selectors.liScratchcard).click();
     // Buy scratchcard
     cy.get(hauntedWoods.selectors.btnBuyScratchcard).click();
+    cy.wait(2000);
     // Check if you get redirected to error for buying too soon
     cy.get("body").then((body) => {
       if (
