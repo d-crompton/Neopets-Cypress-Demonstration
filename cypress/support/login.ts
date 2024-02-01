@@ -9,8 +9,8 @@ export function login() {
   cy.get(loginPage.selectors.inputPassword).type(credentials.password);
   cy.get(loginPage.selectors.btnLogIn).click();
   // Dismiss the pop-up
-  cy.get(loginPage.selectors.btnPromoClose).click();
-  // Open the "Play Neopets" link
-  cy.get(loginPage.selectors.btnMobileMenu).click();
-  cy.get(loginPage.selectors.txtPlayNeopets).click();
+  // cy.get(loginPage.selectors.btnPromoClose).click();
+  // // Open the "Play Neopets" link
+  // cy.get(loginPage.selectors.btnMobileMenu).click();
+  // cy.get(loginPage.selectors.txtPlayNeopets).click();
 }

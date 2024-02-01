@@ -9,10 +9,10 @@
 
 ## New Additions
 
-- Remove the before login from each test, placing it in an external location that makes it run for every spec file.
 - Haunted woods scratch card - Purchasing scratch card then Scratch six (Haunted Woods > Deserted Fairground > Scratchcards)
 - Desert Kiosk scratch card
 - Ice Caves scratch card
+- Money Tree (Neopia Central)
 
 ## General Notes
 
