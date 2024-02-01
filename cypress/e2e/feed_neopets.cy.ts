@@ -19,7 +19,6 @@ describe("Feed All Neopets", () => {
           boolIsPetHungry = isPetHungry(petStatus);
         })
         .then(() => {
-          cy.pause();
           if (boolIsPetHungry) {
             feedPet();
             cy.get(petCareWindow.selectors.petStatusExit).click();
