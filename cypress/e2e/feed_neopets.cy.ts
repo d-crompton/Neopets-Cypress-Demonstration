@@ -15,9 +15,11 @@ describe("Feed All Neopets", () => {
       cy.get(petCareWindow.selectors.petHungerStatus)
         .invoke("text")
         .then((petStatus) => {
+          console.log(`Pet Status: ${petStatus}`);
           boolIsPetHungry = isPetHungry(petStatus);
         })
         .then(() => {
+          cy.pause();
           if (boolIsPetHungry) {
             feedPet();
             cy.get(petCareWindow.selectors.petStatusExit).click();

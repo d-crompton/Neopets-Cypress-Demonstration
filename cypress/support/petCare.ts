@@ -6,11 +6,7 @@ import { petCareWindow } from "../page_objects/homepage/petCareWindow";
 export function isPetHungry(statusText) {
   console.log("isPetHungry statusText: " + statusText);
   // Once arrays created, check using the arrays (.includes?)
-  if (
-    statusText === hungerStatuses.fine ||
-    statusText === hungerStatuses.satiated ||
-    statusText === hungerStatuses.very_full
-  ) {
+  if (hungerStatuses.notHungryValues.includes(statusText)) {
     console.log("isPetHungry returning FALSE");
     return false;
   } else {
