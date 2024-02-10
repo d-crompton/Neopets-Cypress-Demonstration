@@ -18,6 +18,8 @@ class HauntedWoods {
   strings = {
     scratchcardGiveEverybodyElse:
       "Hey, give everybody else a chance to buy a scratchcard!!",
+    scratchcardGiveEverybodyElseLink:
+      "https://www.neopets.com/halloween/process_scratch.phtml",
   };
 }
 
