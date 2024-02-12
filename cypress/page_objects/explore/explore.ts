@@ -3,6 +3,7 @@ import { navigationBar } from "../navigationBar";
 
 class Explore {
   selectors = {
+    aFaerieLand: 'a[href$="/faerieland/index.phtml"]:first-of-type',
     aHauntedWoods: 'a[href="/halloween/index.phtml"]:first-child',
     aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
     aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
@@ -10,6 +11,7 @@ class Explore {
   };
 
   strings = {
+    faerieLand: "FaerieLand",
     hauntedWoods: "HauntedWoods",
     mysteryIsland: "MysteryIsland",
     neopiaCentral: "NeopiaCentral",
