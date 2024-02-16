@@ -18,7 +18,7 @@ class Explore {
     tyrannia: "Tyrannia",
   };
 
-  explore(destination: string) {
+  explore(destination) {
     cy.get(navigationBar.selectors.divExplore).click();
     cy.wait(3000);
     // Resolve "obj.callOnLoad is not a function" error that appears
