@@ -16,6 +16,7 @@ class HauntedWoods {
     // Test Your Strength
     liTestYourStrength: `li[onclick="location.href = '/halloween/strtest/index.phtml'"]`,
     btnTestYourStrength: "#process_strtest",
+    bOops: `div[style*='color: darkred;'] b:first-of-type`,
   };
 
   strings = {
@@ -23,6 +24,7 @@ class HauntedWoods {
       "Hey, give everybody else a chance to buy a scratchcard!!",
     scratchcardGiveEverybodyElseLink:
       "https://www.neopets.com/halloween/process_scratch.phtml",
+    testStrengthOops: "Oops!",
   };
 }
 
