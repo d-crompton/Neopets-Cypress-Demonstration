@@ -11,10 +11,11 @@ class TyranniaJungle {
     liWheelMediocrity: this.createTyranniaLink("mediocrity"),
     btnSpinWheelMediocrity: "#wheelButtonSpin",
     divWheelMediocrityCanvas: "#wheelCanvas canvas", // 438 x 487
-    pWheelMediocrityCantSpinNow: ".container p",
+    pWheelMediocrityText: ".container p",
   };
 
   string = {
+    wheelMediocrityHey: `Hey, it's the Wheel of Mediocrity.`,
     wheelMediocrityCantSpinNowText: `you can't spin right now`,
   };
 }
