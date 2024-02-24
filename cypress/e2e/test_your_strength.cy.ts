@@ -4,7 +4,7 @@ import { explore } from "../page_objects/explore/explore";
 
 describe("Test Your Strength", () => {
   it("Test Your Strength", () => {
-    // Go to Haunted Fairground > Test Your Strength
+    // Go to Haunted Woods > Fairground > Test Your Strength
     explore.explore(explore.strings.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liTestYourStrength).click();
@@ -17,10 +17,8 @@ describe("Test Your Strength", () => {
         );
       }
     });
-    // Press button - May need to press twice, once to start game, once to hit
-    cy.wait(3000);
+    // Start game
+    cy.wait(5000); // Try lower wait times 10000 works
     cy.get(hauntedWoods.selectors.btnTestYourStrength).click();
-    // cy.wait(3000);
-    // cy.get(hauntedWoods.selectors.btnTestYourStrength).click();
   });
 });
