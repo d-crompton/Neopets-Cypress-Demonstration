@@ -18,10 +18,10 @@ describe("Wheel of Mediocrity", () => {
           );
         }
       });
-    // Spin the wheel
+    // Spin the wheel and collect the prize
+    cy.wait(3000);
     cy.get(tyranniaJungle.selectors.btnSpinWheelMediocrity).click();
-    // Once the wheel stops spinning, click the wheel to collect prize
-    // Can press the middle of the wheel (the shell) - should work by default but will need to test
+    cy.wait(9000);
     cy.get(tyranniaJungle.selectors.divWheelMediocrityCanvas).click();
   });
 });
