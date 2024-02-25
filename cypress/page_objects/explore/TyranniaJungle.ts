@@ -1,9 +1,22 @@
 // PO for the Tyrannia Jungle, the first Tyrannia map from the Explore page
 
 class TyranniaJungle {
+  createTyranniaLink = (location: string) => {
+    return `li[onclick="location.href = '/prehistoric/${location}.phtml'"]`;
+  };
+
   selectors = {
-    liPlateauLink:
-      "li[onclick=\"location.href = '/prehistoric/plateau.phtml'\"] h4",
+    liPlateauLink: `${this.createTyranniaLink("plateau")} h4`,
+    // Wheel of Mediocrity
+    liWheelMediocrity: this.createTyranniaLink("mediocrity"),
+    btnSpinWheelMediocrity: "#wheelButtonSpin",
+    divWheelMediocrityCanvas: "#wheelCanvas canvas", // 438 x 487
+    pWheelMediocrityText: ".container p",
+  };
+
+  string = {
+    wheelMediocrityHey: `Hey, it's the Wheel of Mediocrity.`,
+    wheelMediocrityCantSpinNowText: `you can't spin right now`,
   };
 }
 
