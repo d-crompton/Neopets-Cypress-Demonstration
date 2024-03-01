@@ -1,3 +1,3 @@
 # Neopets Cypress Automation
 
-Read me file
+Before using, update account credentials in cypress\fixtures\credentials.ts
