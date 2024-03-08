@@ -1,5 +1,5 @@
 class LoginPage {
-  url = "https://www.neopets.com/login/";
+  url = "login/";
   selectors = {
     inputUsername: "#loginUsername",
     inputPassword: "#loginPassword",
