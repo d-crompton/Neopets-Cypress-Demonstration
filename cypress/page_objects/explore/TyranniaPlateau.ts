@@ -12,6 +12,10 @@ class TyranniaPlateau {
   textValues = {
     sabreXName: "Sabre-X",
   };
+
+  strings = {
+    OmeletteUrl: "prehistoric/omelette.phtml",
+  };
 }
 
 export const tyranniaPlateau = new TyranniaPlateau();
