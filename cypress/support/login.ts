@@ -9,7 +9,7 @@ export function login() {
   cy.get(loginPage.selectors.btnLogIn).click();
 }
 
-export function loginSession() {
+export function loginUsingSession() {
   cy.session(credentials.username, () => {
     cy.visit(loginPage.url);
     cy.get(loginPage.selectors.inputUsername).type(credentials.username);

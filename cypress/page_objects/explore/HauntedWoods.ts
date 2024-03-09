@@ -26,6 +26,11 @@ class HauntedWoods {
       "https://www.neopets.com/halloween/process_scratch.phtml",
     testStrengthOops: "Oops!",
   };
+
+  urls = {
+    scratchcard: "halloween/scratch.phtml",
+    testYourStrength: "halloween/strtest/index.phtml",
+  };
 }
 
 export const hauntedWoods = new HauntedWoods();

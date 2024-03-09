@@ -11,7 +11,7 @@ describe("Wheel of Mediocrity", () => {
       .invoke("text")
       .then((text) => {
         if (
-          text.includes(tyranniaJungle.string.wheelMediocrityCantSpinNowText)
+          text.includes(tyranniaJungle.strings.wheelMediocrityCantSpinNowText)
         ) {
           throw new Error(
             "Custom Error - You have already span the wheel in the last 40 minutes"
