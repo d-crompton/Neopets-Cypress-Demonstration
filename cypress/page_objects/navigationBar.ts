@@ -5,6 +5,7 @@ class NavigationBar {
     divBellIcon: '[class^="nav-bell"]',
     // Alerts
     liFirstAlert: "#alerts > ul > li:first-of-type a",
+    aViewAll: 'a[href^="/allevents"]',
   };
 }
 

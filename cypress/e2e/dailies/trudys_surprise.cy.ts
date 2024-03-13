@@ -6,21 +6,13 @@ import { trudysSurprise } from "../../page_objects/trudysSurprise";
 describe("Trudy's Surprise", () => {
   it("Trudy's Suprise", () => {
     cy.get(navigationBar.selectors.divBellIcon).click();
-    // Force necessary to break through "li" that doesn't respond to click
-    cy.get(navigationBar.selectors.liFirstAlert).click({ force: true });
-    // Manage iframe - https://stackoverflow.com/questions/75463363/cant-find-item-in-cypress-even-though-its-in-dom
-    // https://www.lambdatest.com/blog/how-to-handle-iframes-in-cypress/
-    cy.wait(5000);
-    // This code works
-    // cy.get(".trudyiframe").then((iframe) => {
-    //   cy.wrap(iframe.contents().find("body")).then((body) => {
-    //     cy.wrap(body.find("canvas")).click(450, 600);
-    //   });
-    // });
-    //=================
-    // TO DO - Try to tidy up the code
+    cy.get(navigationBar.selectors.liFirstAlert).click({ force: true }); // Force used to click unresponsive "li"
+    // IF ALERT DOESN'T APPEAR HERE, go to the older view and select the alert from there
+    // View All >
+    // IF ALERT DOESN'T APPEAR IN VIEW ALL, THROW ERROR
+    cy.wait(4000); // Wait for game to load
     cy.get(trudysSurprise.selectors.iframe).then((iframe) => {
-      cy.wrap(iframe.contents().find("body canvas")).then((body) => {
+      cy.wrap(iframe.contents().find("body")).then((body) => {
         cy.wrap(body.find(trudysSurprise.selectors.canvas)).click(450, 600);
       });
     });
