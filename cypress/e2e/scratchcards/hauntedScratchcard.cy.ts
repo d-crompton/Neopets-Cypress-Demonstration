@@ -1,6 +1,7 @@
 // Buy and Scratch off the Haunted Scratchcard
 import { hauntedWoods } from "../../page_objects/explore/HauntedWoods";
 import { explore } from "../../page_objects/explore/explore";
+import { scratchcards } from "../../page_objects/scratchcards";
 
 describe("Buy and scratch Scratchcard", () => {
   it("Buy and scratch Scratchcard", () => {
@@ -26,7 +27,7 @@ describe("Buy and scratch Scratchcard", () => {
     cy.get(hauntedWoods.selectors.btnScratch).click();
     // Loop through the Selectors and scratch the first 6 spots (top 2 rows)
     for (let i = 1; i <= 6; i++) {
-      cy.get(hauntedWoods.selectors[`tdSpot${i}`]).click();
+      cy.get(scratchcards.selectors[`tdSpot${i}`]).click();
     }
   });
 });
