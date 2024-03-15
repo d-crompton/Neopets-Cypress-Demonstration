@@ -8,11 +8,24 @@ describe("Trudy's Surprise", () => {
     // Check if alert appears in the Alerts tab
     cy.get(navigationBar.selectors.divAlerts).then((alerts) => {
       if (alerts.contents().find("li").length == 0) {
-        // If not, go to "View all"
+        // If not, go to "View all" and check if the alert is there
         cy.get(navigationBar.selectors.aViewAll).click();
-        // TO DO - CHECK IF ALERT APPEARS HERE, IF SO GO THROUGH THERE
+        cy.get(navigationBar.selectors.allAlertsContent).then((contents) => {
+          if (
+            contents.contents().find(navigationBar.selectors.aAlertFirstRow)
+              .length == 1
+          ) {
+            cy.get(
+              `${navigationBar.selectors.tableAlerts} ${navigationBar.selectors.aAlertFirstRow}`
+            ).click();
+          } else {
+            // If there's no alert in either place, throw an error
+            throw new Error(
+              "Trudy's Surprise is not ready - check back tomorrow"
+            );
+          }
+        });
       } else {
-        // If so click it
         cy.get(navigationBar.selectors.liFirstAlert).click({ force: true });
       }
     });

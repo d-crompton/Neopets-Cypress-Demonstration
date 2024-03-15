@@ -7,6 +7,10 @@ class NavigationBar {
     divAlerts: "#alerts",
     liFirstAlert: "#alerts > ul > li:first-of-type a",
     aViewAll: 'a[href^="/allevents"]',
+    // View All
+    allAlertsContent: ".content div:nth-child(2)",
+    tableAlerts: 'table[align="center"]',
+    aAlertFirstRow: "tr:nth-child(2) td:nth-child(2) a",
   };
 }
 
