@@ -1,6 +1,7 @@
 // A single test file containing all the different dailies (and timed activties)
 // Rather than using "Explore", this test will use direct links
 import { loginUsingSession } from "../../support/login";
+import { trudysSurprise } from "../../page_objects/trudysSurprise";
 import { hauntedWoods } from "../../page_objects/explore/HauntedWoods";
 import { jellyWorld } from "../../page_objects/explore/JellyWorld";
 import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
@@ -11,6 +12,17 @@ import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
 describe("Dailies", () => {
   beforeEach(() => {
     loginUsingSession();
+  });
+
+  // Trudy's Surprise
+  it("Trudy's Surprise", () => {
+    cy.visit(trudysSurprise.url);
+    cy.wait(4000); // Wait for slots iframe to load
+    cy.get(trudysSurprise.selectors.iframe).then((iframe) => {
+      cy.wrap(iframe.contents().find("body")).then((body) => {
+        cy.wrap(body.find(trudysSurprise.selectors.canvas)).click(450, 600);
+      });
+    });
   });
 
   // Food Items
