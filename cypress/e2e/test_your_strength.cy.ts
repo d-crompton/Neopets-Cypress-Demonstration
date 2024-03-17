@@ -18,7 +18,7 @@ describe("Test Your Strength", () => {
       }
     });
     // Start game
-    cy.wait(5000); // Try lower wait times 10000 works
+    cy.wait(7000); // Try lower wait times 10000 works
     cy.get(hauntedWoods.selectors.btnTestYourStrength).click();
   });
 });
