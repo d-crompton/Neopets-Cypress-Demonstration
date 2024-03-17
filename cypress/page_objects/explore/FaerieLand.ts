@@ -1,6 +1,10 @@
+import { createLinkElement } from "../../support/navigation";
+
 class FaerieLand {
+  area = "faerieland";
+
   selectors = {
-    liHealingSprings: `li[onclick="location.href = '/faerieland/springs.phtml'"]`,
+    liHealingSprings: createLinkElement(this.area, "springs"),
     btnHealMyPets: "input[value='Heal my Pets']",
     pAfterHealMyPets: ".theme-bg p:first-of-type", // Message that appears after pressing the button above
   };

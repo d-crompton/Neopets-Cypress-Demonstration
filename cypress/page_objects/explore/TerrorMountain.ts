@@ -1,5 +1,5 @@
 // Terror Mountain - Happy Valley
-import { navigateToLink } from "../../support/navigation";
+import { createLinkElement } from "../../support/navigation";
 
 class TerrorMountain {
   urls = {
@@ -10,7 +10,7 @@ class TerrorMountain {
   area = "winter";
 
   selectors = {
-    liScratchcardKiosk: navigateToLink(this.area, "kiosk"),
+    liScratchcardKiosk: createLinkElement(this.area, "kiosk"),
     // Scratchcard Kiosk
     btnBuyScratchcard: `form[method="post"] input[type="submit"]`,
     selectScratchcard: 'select[name="card_id"]',
