@@ -1,6 +1,10 @@
+import { createLinkElement } from "../../support/navigation";
+
 class MysteryIsland {
+  area = "island";
+
   selector = {
-    liTombola: ".quickLinks__2020 > li:nth-of-type(16)",
+    liTombola: createLinkElement(this.area, "tombola"),
     inputPlayTomabola: 'input[value="Play Tombola!"]',
   };
 
