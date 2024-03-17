@@ -1,21 +1,19 @@
 // Terror Mountain - Happy Valley
-class TerrorMountain {
-  createWinterLinkElem = (location: string) => {
-    return `li[onclick="location.href = '/winter/${location}.phtml'"]`;
-  };
+import { createLinkElement } from "../../support/navigation";
 
+class TerrorMountain {
   urls = {
-    scratchcardKiosk: "winter/kiosk.phtml",
     scratchcardAlreadyPurchased:
       "https://www.neopets.com/winter/process_kiosk.phtml",
   };
 
+  area = "winter";
+
   selectors = {
-    liScratchcardKiosk: this.createWinterLinkElem("kiosk"),
     // Scratchcard Kiosk
+    liScratchcardKiosk: createLinkElement(this.area, "kiosk"),
     btnBuyScratchcard: `form[method="post"] input[type="submit"]`,
     selectScratchcard: 'select[name="card_id"]',
-    // optionScratchcard: "option",
     btnScratch: 'input[value="Scratch!"]',
   };
 }

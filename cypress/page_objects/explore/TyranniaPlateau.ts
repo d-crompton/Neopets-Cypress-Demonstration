@@ -1,10 +1,15 @@
 // PO for the second Tyrannia area, reached from the Jungle
+import { createLinkElement } from "../../support/navigation";
 
 class TyranniaPlateau {
+  area = "prehistoric";
+
   selectors = {
-    liOmelette:
-      "li[onclick=\"location.href = '/prehistoric/omelette.phtml?rand=11996'\"] h4",
-    // Inside Omelette pages
+    // Giant Omelette
+    liOmelette: createLinkElement(this.area, "omelette").replace(
+      `'"]`,
+      `?rand=11996'"]`
+    ),
     buttonOmelette: 'input[value="Grab some Omelette"]',
     txtSabreXName: "center p:nth-child(3) b",
   };

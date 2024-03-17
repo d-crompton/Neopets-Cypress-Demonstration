@@ -12,7 +12,6 @@ describe("Happy Valley Scratchcard", () => {
     cy.get(terrorMountain.selectors.btnBuyScratchcard).click();
     // Check error when you already purchased one
     cy.url().then((url) => {
-      console.log(url);
       if (url == terrorMountain.urls.scratchcardAlreadyPurchased) {
         throw new Error(
           "Custom Error - You have already purchased a scratchcard in the past 6 hours"
