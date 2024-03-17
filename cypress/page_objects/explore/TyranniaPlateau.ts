@@ -5,11 +5,11 @@ class TyranniaPlateau {
   area = "prehistoric";
 
   selectors = {
+    // Giant Omelette
     liOmelette: createLinkElement(this.area, "omelette").replace(
       `'"]`,
-      `?rand=11996'\"]`
+      `?rand=11996'"]`
     ),
-    // Giant Omelette
     buttonOmelette: 'input[value="Grab some Omelette"]',
     txtSabreXName: "center p:nth-child(3) b",
   };

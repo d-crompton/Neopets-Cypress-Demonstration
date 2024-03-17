@@ -4,6 +4,7 @@ class MysteryIsland {
   area = "island";
 
   selector = {
+    // Tombola
     liTombola: createLinkElement(this.area, "tombola"),
     inputPlayTomabola: 'input[value="Play Tombola!"]',
   };

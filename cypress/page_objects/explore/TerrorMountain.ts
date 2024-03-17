@@ -10,8 +10,8 @@ class TerrorMountain {
   area = "winter";
 
   selectors = {
-    liScratchcardKiosk: createLinkElement(this.area, "kiosk"),
     // Scratchcard Kiosk
+    liScratchcardKiosk: createLinkElement(this.area, "kiosk"),
     btnBuyScratchcard: `form[method="post"] input[type="submit"]`,
     selectScratchcard: 'select[name="card_id"]',
     btnScratch: 'input[value="Scratch!"]',

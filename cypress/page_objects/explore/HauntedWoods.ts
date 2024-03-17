@@ -11,7 +11,6 @@ class HauntedWoods {
     selectScratchcard: 'select[name="card_id"]',
     btnScratch: 'form[action="scratch2.phtml"] input',
     // Test Your Strength
-    // liTestYourStrength: `li[onclick="location.href = '/halloween/strtest/index.phtml'"]`,
     liTestYourStrength: createLinkElement(this.area, "strtest/index"),
     btnTestYourStrength: "#process_strtest",
     bOops: `div[style*='color: darkred;'] b:first-of-type`,
