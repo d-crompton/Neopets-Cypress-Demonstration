@@ -1,6 +1,6 @@
 // Explore to "Test Your Strength"
 import { hauntedWoods } from "../page_objects/explore/HauntedWoods";
-import { explore } from "../page_objects/explore/explore";
+import { explore } from "../page_objects/explore/_explore";
 
 describe("Test Your Strength", () => {
   it("Test Your Strength", () => {

@@ -1,5 +1,5 @@
 // Purchase and scratch a Happy Valley Kiosk Scratchcard - Cooldown 6 hours
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 import { terrorMountain } from "../../page_objects/explore/TerrorMountain";
 import { scratchcards } from "../../page_objects/scratchcards";
 

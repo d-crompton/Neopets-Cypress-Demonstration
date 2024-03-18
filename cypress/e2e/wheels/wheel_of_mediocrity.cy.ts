@@ -1,5 +1,5 @@
 // In Tyrannia Jungle - Cooldown of 40 minutes, costs 100 NP
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 
 describe("Wheel of Mediocrity", () => {

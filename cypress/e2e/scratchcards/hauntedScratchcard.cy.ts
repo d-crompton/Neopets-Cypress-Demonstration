@@ -1,6 +1,6 @@
 // Buy and Scratch off the Haunted Scratchcard
 import { hauntedWoods } from "../../page_objects/explore/HauntedWoods";
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 import { scratchcards } from "../../page_objects/scratchcards";
 
 describe("Buy and scratch Scratchcard", () => {

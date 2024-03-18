@@ -1,5 +1,5 @@
 // Collect the first item available form the Money Tree in Neopia Central
-import { explore } from "../page_objects/explore/explore";
+import { explore } from "../page_objects/explore/_explore";
 import { neopiaCentral } from "../page_objects/explore/NeopiaCentral";
 
 describe("Collect from Money Tree", () => {

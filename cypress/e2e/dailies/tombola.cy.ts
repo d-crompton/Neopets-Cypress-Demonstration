@@ -1,4 +1,4 @@
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
 
 describe("tombola", () => {
