@@ -5,6 +5,7 @@ class Explore {
   selectors = {
     aFaerieLand: 'a[href$="/faerieland/index.phtml"]:first-of-type',
     aHauntedWoods: 'a[href="/halloween/index.phtml"]:first-child',
+    aLostDesert: 'a[href="/desert/index.phtml"]:first-of-type',
     aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
     aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
     aTerrorMountain: 'a[href="/winter/index.phtml"]:first-of-type',
@@ -14,6 +15,7 @@ class Explore {
   strings = {
     faerieLand: "FaerieLand",
     hauntedWoods: "HauntedWoods",
+    lostDesert: "LostDesert",
     mysteryIsland: "MysteryIsland",
     neopiaCentral: "NeopiaCentral",
     terrorMountain: "TerrorMountain",
