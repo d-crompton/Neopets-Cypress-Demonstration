@@ -7,8 +7,6 @@ describe("Fruit Machine", () => {
     cy.get(lostDesert.selectors.liSakhmet).click();
     cy.get(lostDesert.selectors.liFruitMachine).click();
     // Check if button exists, if so, spin, if not throw error
-    // cy.get(lostDesert.selectors.btnSpinFruitMachine).click();
-
     cy.get("body").then((body) => {
       if (body.find(lostDesert.selectors.btnSpinFruitMachine).length == 1) {
         cy.get(lostDesert.selectors.btnSpinFruitMachine).click();
