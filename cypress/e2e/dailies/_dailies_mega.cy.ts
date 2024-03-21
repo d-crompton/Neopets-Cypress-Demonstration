@@ -8,6 +8,7 @@ import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
 import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
 import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
+import { faerieLand } from "../../page_objects/explore/FaerieLand";
 
 describe("Dailies", () => {
   beforeEach(() => {
@@ -43,6 +44,14 @@ describe("Dailies", () => {
     cy.get(tyranniaJungle.selectors.btnSpinWheelMediocrity).click();
     cy.wait(9000);
     cy.get(tyranniaJungle.selectors.divWheelMediocrityCanvas).click();
+  });
+
+  it("Wheel of Excitement", () => {
+    cy.visit(faerieLand.urls.wheelOfExcitement);
+    cy.wait(3000);
+    cy.get(faerieLand.selectors.btnWheelSpin).click();
+    cy.wait(8000);
+    cy.get(faerieLand.selectors.canvasWheel).click();
   });
 
   // Scratchcards

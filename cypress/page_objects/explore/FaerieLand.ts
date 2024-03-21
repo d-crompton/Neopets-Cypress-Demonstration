@@ -13,6 +13,10 @@ class FaerieLand {
     btnWheelSpin: "#wheelButtonSpin",
     canvasWheel: "canvas",
   };
+
+  urls = {
+    wheelOfExcitement: "faerieland/wheel.phtml",
+  };
 }
 
 export const faerieLand = new FaerieLand();
