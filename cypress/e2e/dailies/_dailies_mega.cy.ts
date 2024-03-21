@@ -9,6 +9,8 @@ import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
 import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
 import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { scratchcards } from "../../page_objects/scratchcards";
+import { lostDesert } from "../../page_objects/explore/LostDesert";
 
 describe("Dailies", () => {
   beforeEach(() => {
@@ -54,7 +56,7 @@ describe("Dailies", () => {
     cy.get(faerieLand.selectors.canvasWheel).click();
   });
 
-  // Scratchcards
+  // Scratchcards - Can only include 1 type
   it("Haunted Scratchcard", () => {
     cy.visit(hauntedWoods.urls.scratchcard);
     cy.get(hauntedWoods.selectors.btnBuyScratchcard).click();
@@ -62,7 +64,7 @@ describe("Dailies", () => {
     cy.get(hauntedWoods.selectors.selectScratchcard).select(1);
     cy.get(hauntedWoods.selectors.btnScratch).click();
     for (let i = 1; i <= 6; i++) {
-      cy.get(hauntedWoods.selectors[`tdSpot${i}`]).click();
+      cy.get(scratchcards.selectors[`tdSpot${i}`]).click();
     }
   });
 
@@ -78,7 +80,12 @@ describe("Dailies", () => {
     cy.get(mysteryIsland.selector.inputPlayTomabola).click();
   });
 
-  // Miscellaneous
+  it("Fruit Machine", () => {
+    cy.visit(lostDesert.urls.fruitMachine);
+    cy.get(lostDesert.selectors.btnSpinFruitMachine).click();
+  });
+
+  // Miscellaneous - Not necessarily timed but can quickly redeem
   it("Money Tree", () => {
     cy.visit(neopiaCentral.urls.moneyTree);
     cy.get(neopiaCentral.selector.moneyTreeFirstDonate).click();
