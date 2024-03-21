@@ -11,6 +11,7 @@ import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
 import { faerieLand } from "../../page_objects/explore/FaerieLand";
 import { scratchcards } from "../../page_objects/scratchcards";
 import { lostDesert } from "../../page_objects/explore/LostDesert";
+import { brightvale } from "../../page_objects/explore/Brightvale";
 
 describe("Dailies", () => {
   beforeEach(() => {
@@ -54,6 +55,14 @@ describe("Dailies", () => {
     cy.get(faerieLand.selectors.btnWheelSpin).click();
     cy.wait(8000);
     cy.get(faerieLand.selectors.canvasWheel).click();
+  });
+
+  it("Wheel of Knowledge", () => {
+    cy.visit(brightvale.url.wheelOfKnowledge);
+    cy.wait(3000);
+    cy.get(brightvale.selectors.canvasWheel).click();
+    cy.wait(8000);
+    cy.get(brightvale.selectors.canvasWheel).click();
   });
 
   // Scratchcards - Can only include 1 type

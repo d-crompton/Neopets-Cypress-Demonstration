@@ -6,11 +6,9 @@ describe("Wheel of Knowledge", () => {
   it("Wheel of Knowledge", () => {
     explore.explore(explore.strings.brightvale);
     cy.get(brightvale.selectors.liWheelOfKnowledge).click();
-    // Spin wheel
-    // cy.get(brightvale.selectors.btnSpinWheel).click();
+    cy.wait(3000);
     cy.get(brightvale.selectors.canvasWheel).click();
-    cy.wait(20000); // Count wheel and adjust
-    // Collect prize
+    cy.wait(8000);
     cy.get(brightvale.selectors.canvasWheel).click();
   });
 });
