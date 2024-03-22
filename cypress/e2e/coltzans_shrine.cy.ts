@@ -5,7 +5,7 @@ import { explore } from "../page_objects/explore/explore";
 describe("Coltzan's Shrine", () => {
   it("Coltzan's Shrine", () => {
     explore.explore(explore.strings.lostDesert);
-    cy.get(lostDesert.selectors.liSakhmet).click();
+    cy.get(lostDesert.selectors.liColtzans).click();
     cy.get(lostDesert.selectors.btnApproachShrine).click();
   });
 });
