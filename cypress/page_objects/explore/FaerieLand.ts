@@ -12,9 +12,13 @@ class FaerieLand {
     liWheelOfExcitement: createLinkElement(this.area, "wheel"),
     btnWheelSpin: "#wheelButtonSpin",
     canvasWheel: "canvas",
+    // Grundo Plushie
+    liGrundoPlushie: createLinkElement(this.area, "tdmbgpop"),
+    btnTalkToPlushie: `input[value^='Talk']`,
   };
 
   urls = {
+    grundoPlushie: "faerieland/tdmbgpop.phtml",
     wheelOfExcitement: "faerieland/wheel.phtml",
   };
 }
