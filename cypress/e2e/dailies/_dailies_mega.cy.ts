@@ -94,6 +94,11 @@ describe("Dailies", () => {
     cy.get(lostDesert.selectors.btnSpinFruitMachine).click();
   });
 
+  it("Coltzan's Shrine", () => {
+    cy.visit(lostDesert.urls.coltzansShrine);
+    cy.get(lostDesert.selectors.btnApproachShrine).click();
+  });
+
   // Miscellaneous - Not necessarily timed but can quickly redeem
   it("Money Tree", () => {
     cy.visit(neopiaCentral.urls.moneyTree);

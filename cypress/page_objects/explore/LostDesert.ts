@@ -4,6 +4,9 @@ class LostDesert {
   area = "desert";
 
   selectors = {
+    // Coltzans Shrine
+    liColtzans: createLinkElement(this.area, "shrine"),
+    btnApproachShrine: 'input[value^="Approach"]',
     // Sakhmet
     liSakhmet: createLinkElement(this.area, "sakhmet"),
     liFruitMachine: createLinkElement(this.area, "fruit/index"),
@@ -11,6 +14,7 @@ class LostDesert {
   };
 
   urls = {
+    coltzansShrine: "desert/shrine.phtml",
     fruitMachine: "desert/fruit/index.phtml",
   };
 }
