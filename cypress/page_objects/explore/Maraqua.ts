@@ -15,3 +15,5 @@ class Maraqua {
     fishingVortex: "water/fishing.phtml",
   };
 }
+
+export const maraqua = new Maraqua();

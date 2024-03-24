@@ -10,6 +10,7 @@ class PetCareWindow {
     feedPetButton: "#petCareUseItem",
     resultStatusText: "#petCareResult .popup-body__2020 p:nth-of-type(3)",
     resultBackButton: "#petCareResultBack",
+    activeButton: ".pet-star",
   };
 }
 
