@@ -15,6 +15,11 @@ class FaerieLand {
     // Grundo Plushie
     liGrundoPlushie: createLinkElement(this.area, "tdmbgpop"),
     btnTalkToPlushie: `input[value^='Talk']`,
+    pGrundoAlreadyVisited: "#container__2020 p",
+  };
+
+  strings = {
+    alreadyVisitedGrundo: "What? You have already visited the plushie today,",
   };
 
   urls = {
