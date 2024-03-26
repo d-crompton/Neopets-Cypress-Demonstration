@@ -1,4 +1,4 @@
-// In Tyrannia Jungle - Cooldown of 40 minutes, costs 100 NP
+// Tyrannia Jungle - Tyrannia - 40 min cooldown
 import { explore } from "../../page_objects/explore/_explore";
 import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 

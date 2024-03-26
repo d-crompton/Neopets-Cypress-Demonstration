@@ -1,7 +1,6 @@
-// Faerieland - 2 hour cooldown
-
+// Wheel of Excitement - Faerieland - 2 hour cooldown
 import { faerieLand } from "../../page_objects/explore/FaerieLand";
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 
 describe("Wheel of Excitement", () => {
   it("Wheel of Excitement", () => {
