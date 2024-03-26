@@ -1,16 +1,14 @@
-// Purchase and scratch a Happy Valley Kiosk Scratchcard - Cooldown 6 hours
+// Happy Valley Kiosk Scratchcard - Terror Mountain - 6 hour cooldown
 import { explore } from "../../page_objects/explore/_explore";
 import { terrorMountain } from "../../page_objects/explore/TerrorMountain";
 import { scratchcards } from "../../page_objects/scratchcards";
 
 describe("Happy Valley Scratchcard", () => {
   it("Happy Valley Scratchcard", () => {
-    // Navigate to Kiosk
     explore.explore(explore.strings.terrorMountain);
     cy.get(terrorMountain.selectors.liScratchcardKiosk).click();
-    // Buy scratchcard
     cy.get(terrorMountain.selectors.btnBuyScratchcard).click();
-    // Check error when you already purchased one
+    // Throw an error if you've already purchased within cooldown
     cy.url().then((url) => {
       if (url == terrorMountain.urls.scratchcardAlreadyPurchased) {
         throw new Error(
