@@ -1,4 +1,4 @@
-// Trudy's Surprise - Daily- Click notification and spin wheel
+// Trudy's Surprise - Accessed via Notifications
 import { navigationBar } from "../../page_objects/navigationBar";
 import { trudysSurprise } from "../../page_objects/trudysSurprise";
 
@@ -8,7 +8,7 @@ describe("Trudy's Surprise", () => {
     // Check if alert appears in the Alerts tab
     cy.get(navigationBar.selectors.divAlerts).then((alerts) => {
       if (alerts.contents().find("li").length == 0) {
-        // If not, go to "View all" and check if the alert is there
+        // If not, go to "View all" Notifications page and check if the alert is there
         cy.get(navigationBar.selectors.aViewAll).click();
         cy.get(navigationBar.selectors.allAlertsContent).then((contents) => {
           if (
@@ -21,7 +21,7 @@ describe("Trudy's Surprise", () => {
           } else {
             // If there's no alert in either place, throw an error
             throw new Error(
-              "Trudy's Surprise is not ready - check back tomorrow"
+              "Trudy's Surprise is not ready - Check back tomorrow"
             );
           }
         });

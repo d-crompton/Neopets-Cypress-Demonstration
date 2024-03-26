@@ -65,7 +65,7 @@ describe("Dailies", () => {
     cy.get(brightvale.selectors.canvasWheel).click();
   });
 
-  // Scratchcards - Can only include 1 type
+  // Haunted Scratchcard
   it("Haunted Scratchcard", () => {
     cy.visit(hauntedWoods.urls.scratchcard);
     cy.get(hauntedWoods.selectors.btnBuyScratchcard).click();

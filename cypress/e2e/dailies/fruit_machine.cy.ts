@@ -1,5 +1,6 @@
+// Fruit Machine - Sakhmet, Lost Desert
 import { lostDesert } from "../../page_objects/explore/LostDesert";
-import { explore } from "../../page_objects/explore/explore";
+import { explore } from "../../page_objects/explore/_explore";
 
 describe("Fruit Machine", () => {
   it("Fruit Machine", () => {
