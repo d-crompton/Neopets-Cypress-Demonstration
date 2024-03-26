@@ -8,7 +8,7 @@ class Scratchcards {
     tdSpot4: "center > table table > tbody tr:nth-child(2) > td:nth-of-type(1)",
     tdSpot5: "center > table table > tbody tr:nth-child(2) > td:nth-of-type(2)",
     tdSpot6: "center > table table > tbody tr:nth-child(2) > td:nth-of-type(3)",
-    // Race to Riches (Winter) Scratchcard is structured different to Halloween?
+    // Race to Riches (Winter) Scratchcard is structured different to Halloween
     winterTdSpot6:
       "center > table table > tbody tr:nth-child(2) > td:nth-of-type(4)",
   };
