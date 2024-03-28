@@ -1,13 +1,12 @@
-import { faerieLand } from "../page_objects/explore/FaerieLand";
-import { explore } from "../page_objects/explore/_explore";
+// Healing Springs - Faerieland - 30 minute cooldown
+import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { explore } from "../../page_objects/explore/_explore";
 
 describe("Visit Healing Springs", () => {
   it("Visit Healing Springs", () => {
     explore.explore(explore.strings.faerieLand);
     cy.get(faerieLand.selectors.liHealingSprings).click();
     cy.get(faerieLand.selectors.btnHealMyPets).click();
-    // Throw error if the springs aren't ready
-    // Check if .theme-bg p:first-of-type grabs the correct text box when used successfully
     cy.get(faerieLand.selectors.pAfterHealMyPets)
       .invoke("text")
       .then((text) => {

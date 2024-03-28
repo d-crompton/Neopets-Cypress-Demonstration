@@ -1,8 +1,9 @@
-import { maraqua } from "../page_objects/explore/Maraqua";
-import { explore } from "../page_objects/explore/_explore";
-import { homePage } from "../page_objects/homepage/homepage";
-import { petCareWindow } from "../page_objects/homepage/petCareWindow";
-import { navigationBar } from "../page_objects/navigationBar";
+// Fishing Vortex - Maraquan Ruins
+import { maraqua } from "../../page_objects/explore/Maraqua";
+import { explore } from "../../page_objects/explore/_explore";
+import { homePage } from "../../page_objects/homepage/homepage";
+import { petCareWindow } from "../../page_objects/homepage/petCareWindow";
+import { navigationBar } from "../../page_objects/navigationBar";
 
 describe("Fishing Vortex", () => {
   it("Fishing Vortex", () => {

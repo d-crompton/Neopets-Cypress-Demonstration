@@ -1,14 +1,12 @@
-// Explore to "Test Your Strength"
-import { hauntedWoods } from "../page_objects/explore/HauntedWoods";
-import { explore } from "../page_objects/explore/_explore";
+// Test Your Strength - Haunted Fairground - 6 hour cooldown
+import { hauntedWoods } from "../../page_objects/explore/HauntedWoods";
+import { explore } from "../../page_objects/explore/_explore";
 
 describe("Test Your Strength", () => {
   it("Test Your Strength", () => {
-    // Go to Haunted Woods > Fairground > Test Your Strength
     explore.explore(explore.strings.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liTestYourStrength).click();
-    // Check that you haven't played in the last 6 hours
     cy.document().then((document) => {
       let oopsText = document.querySelector(hauntedWoods.selectors.bOops);
       if (oopsText != null) {
@@ -17,8 +15,7 @@ describe("Test Your Strength", () => {
         );
       }
     });
-    // Start game
-    cy.wait(7000); // Try lower wait times 10000 works
-    cy.get(hauntedWoods.selectors.btnTestYourStrength).click();
+    cy.wait(7000);
+    cy.get(hauntedWoods.selectors.btnTestYourStrength).click(); // Start game
   });
 });
