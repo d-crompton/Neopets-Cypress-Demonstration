@@ -99,6 +99,11 @@ describe("Dailies", () => {
     cy.get(lostDesert.selectors.btnApproachShrine).click();
   });
 
+  it("Grundo Plushie", () => {
+    cy.visit(faerieLand.urls.grundoPlushie);
+    cy.get(faerieLand.selectors.btnTalkToPlushie).click();
+  });
+
   // Miscellaneous - Not necessarily timed but can quickly redeem
   it("Money Tree", () => {
     cy.visit(neopiaCentral.urls.moneyTree);
