@@ -5,7 +5,7 @@ class Brightvale {
 
   selectors = {
     // Wheel of Knowledge
-    liWheelOfKnowledge: createLinkElement(this.area, "knowledge"),
+    liWheelOfKnowledge: createLinkElement("knowledge"),
     btnSpinWheel: "#wheelButtonSpin",
     canvasWheel: "#wheelCanvas",
   };

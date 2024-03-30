@@ -4,7 +4,7 @@ import { brightvale } from "../../page_objects/explore/Brightvale";
 
 describe("Wheel of Knowledge", () => {
   it("Wheel of Knowledge", () => {
-    explore.explore(explore.strings.brightvale);
+    explore.explore(explore.link.brightvale);
     cy.get(brightvale.selectors.liWheelOfKnowledge).click();
     cy.wait(3000); // Wait for wheel to load
     cy.get(brightvale.selectors.canvasWheel).click();
