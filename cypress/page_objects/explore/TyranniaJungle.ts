@@ -5,9 +5,9 @@ class TyranniaJungle {
   area = "prehistoric";
 
   selectors = {
-    liPlateauLink: createLinkElement(this.area, "plateau"),
+    liPlateauLink: createLinkElement("plateau"),
     // Wheel of Mediocrity
-    liWheelMediocrity: createLinkElement(this.area, "mediocrity"),
+    liWheelMediocrity: createLinkElement("mediocrity"),
     btnSpinWheelMediocrity: "#wheelButtonSpin",
     divWheelMediocrityCanvas: "#wheelCanvas canvas", // 438 x 487
     pWheelMediocrityText: ".container p",

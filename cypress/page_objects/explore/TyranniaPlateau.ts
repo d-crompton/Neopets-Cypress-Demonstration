@@ -6,10 +6,11 @@ class TyranniaPlateau {
 
   selectors = {
     // Giant Omelette
-    liOmelette: createLinkElement(this.area, "omelette").replace(
-      `'"]`,
-      `?rand=11996'"]`
-    ),
+    // liOmelette: createLinkElement(this.area, "omelette").replace(
+    //   `'"]`,
+    //   `?rand=11996'"]`
+    // ),
+    liOmelette: createLinkElement("omelette"),
     buttonOmelette: 'input[value="Grab some Omelette"]',
     txtSabreXName: "center p:nth-child(3) b",
   };
