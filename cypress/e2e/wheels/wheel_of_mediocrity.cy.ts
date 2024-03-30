@@ -4,7 +4,7 @@ import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 
 describe("Wheel of Mediocrity", () => {
   it("Wheel of Mediocrity", () => {
-    explore.explore(explore.strings.tyrannia);
+    explore.explore(explore.link.tyrannia);
     cy.get(tyranniaJungle.selectors.liWheelMediocrity).click();
     // Check if you're redirected to the message saying you can't spin now
     cy.get(tyranniaJungle.selectors.pWheelMediocrityText)
