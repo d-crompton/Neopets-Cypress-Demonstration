@@ -4,14 +4,14 @@ class HauntedWoods {
   area = "halloween";
 
   selectors = {
-    liFairground: createLinkElement(this.area, "index_fair"),
+    liFairground: createLinkElement("index_fair"),
     // Scratch Card - Buying and Selecting
-    liScratchcard: createLinkElement(this.area, "scratch"),
+    liScratchcard: createLinkElement("scratch"),
     btnBuyScratchcard: 'form[action="process_scratch.phtml"] input',
     selectScratchcard: 'select[name="card_id"]',
     btnScratch: 'form[action="scratch2.phtml"] input',
     // Test Your Strength
-    liTestYourStrength: createLinkElement(this.area, "strtest/index"),
+    liTestYourStrength: createLinkElement("strtest/index"),
     btnTestYourStrength: "#process_strtest",
     bOops: `div[style*='color: darkred;'] b:first-of-type`,
   };

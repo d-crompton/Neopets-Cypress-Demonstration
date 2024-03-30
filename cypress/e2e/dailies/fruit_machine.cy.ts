@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Fruit Machine", () => {
   it("Fruit Machine", () => {
-    explore.explore(explore.strings.lostDesert);
+    explore.explore(explore.link.lostDesert);
     cy.get(lostDesert.selectors.liSakhmet).click();
     cy.get(lostDesert.selectors.liFruitMachine).click();
     // Check if button exists, if so, spin, if not throw error

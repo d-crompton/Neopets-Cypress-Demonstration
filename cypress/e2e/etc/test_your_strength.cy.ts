@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Test Your Strength", () => {
   it("Test Your Strength", () => {
-    explore.explore(explore.strings.hauntedWoods);
+    explore.explore(explore.link.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liTestYourStrength).click();
     cy.document().then((document) => {
