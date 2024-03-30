@@ -5,7 +5,7 @@ import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
 
 describe("Claim Giant Omelette", () => {
   it("Claim Giant Omelette", () => {
-    explore.explore(explore.strings.tyrannia);
+    explore.explore(explore.link.tyrannia);
     cy.get(tyranniaJungle.selectors.liPlateauLink).click();
     cy.get(tyranniaPlateau.selectors.liOmelette).click();
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
