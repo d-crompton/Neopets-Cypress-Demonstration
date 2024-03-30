@@ -1,6 +1,6 @@
 // PO for the Map of Neopia page that appears when pressing Explore on nav bar
-import { createLinkElement } from "../../support/navigation";
 import { navigationBar } from "../navigationBar";
+import { faerieLand } from "./FaerieLand";
 import { tyranniaJungle } from "./TyranniaJungle";
 
 class Explore {
@@ -9,7 +9,6 @@ class Explore {
   }
 
   selectors = {
-    aBrightvale: `a[href*='brightvale']:first-of-type`,
     aFaerieLand: 'a[href$="/faerieland/index.phtml"]:first-of-type',
     aHauntedWoods: 'a[href="/halloween/index.phtml"]:first-child',
     aLostDesert: 'a[href="/desert/index.phtml"]:first-of-type',
@@ -34,6 +33,7 @@ class Explore {
 
   link = {
     brightvale: `a[href*='brightvale']:first-of-type`,
+    faerieLand: this.createExploreLink(faerieLand.area),
     tyrannia: this.createExploreLink(tyranniaJungle.area),
   };
 

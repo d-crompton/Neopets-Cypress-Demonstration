@@ -5,15 +5,15 @@ class FaerieLand {
 
   selectors = {
     // Healing Springs
-    liHealingSprings: createLinkElement(this.area, "springs"),
+    liHealingSprings: createLinkElement("springs"),
     btnHealMyPets: "input[value='Heal my Pets']",
     pAfterHealMyPets: ".theme-bg p:first-of-type", // Message that appears after pressing the button above
     // Wheel of Excitement
-    liWheelOfExcitement: createLinkElement(this.area, "wheel"),
+    liWheelOfExcitement: createLinkElement("wheel"),
     btnWheelSpin: "#wheelButtonSpin",
     canvasWheel: "canvas",
     // Grundo Plushie
-    liGrundoPlushie: createLinkElement(this.area, "tdmbgpop"),
+    liGrundoPlushie: createLinkElement("tdmbgpop"),
     btnTalkToPlushie: `input[value^='Talk']`,
     pGrundoText: "#container__2020 p",
   };

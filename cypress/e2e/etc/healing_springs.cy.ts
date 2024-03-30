@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Visit Healing Springs", () => {
   it("Visit Healing Springs", () => {
-    explore.explore(explore.strings.faerieLand);
+    explore.explore(explore.link.faerieLand);
     cy.get(faerieLand.selectors.liHealingSprings).click();
     cy.get(faerieLand.selectors.btnHealMyPets).click();
     cy.get(faerieLand.selectors.pAfterHealMyPets)
