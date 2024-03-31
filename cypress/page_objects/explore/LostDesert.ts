@@ -5,11 +5,11 @@ class LostDesert {
 
   selectors = {
     // Coltzans Shrine
-    liColtzans: createLinkElement(this.area, "shrine"),
+    liColtzans: createLinkElement("shrine"),
     btnApproachShrine: 'input[value^="Approach"]',
     // Sakhmet
-    liSakhmet: createLinkElement(this.area, "sakhmet"),
-    liFruitMachine: createLinkElement(this.area, "fruit/index"),
+    liSakhmet: createLinkElement("sakhmet"),
+    liFruitMachine: createLinkElement("fruit/index"),
     btnSpinFruitMachine: 'input[value*="spin"]',
   };
 
