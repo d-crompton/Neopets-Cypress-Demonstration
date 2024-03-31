@@ -5,6 +5,7 @@ import { hauntedWoods } from "./HauntedWoods";
 import { lostDesert } from "./LostDesert";
 import { maraqua } from "./Maraqua";
 import { mysteryIsland } from "./MysteryIsland";
+import { terrorMountain } from "./TerrorMountain";
 import { tyranniaJungle } from "./TyranniaJungle";
 
 class Explore {
@@ -12,17 +13,7 @@ class Explore {
     return `a[href*="${destination}/index.phtml"]:first-of-type`;
   }
 
-  selectors = {
-    // aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
-    aTerrorMountain: 'a[href="/winter/index.phtml"]:first-of-type',
-  };
-
-  strings = {
-    // neopiaCentral: "NeopiaCentral",
-    terrorMountain: "TerrorMountain",
-  };
-
-  link = {
+  links = {
     brightvale: `a[href*='brightvale']:first-of-type`,
     faerieLand: this.createExploreLink(faerieLand.area),
     hauntedWoods: this.createExploreLink(hauntedWoods.area),
@@ -31,6 +22,7 @@ class Explore {
     mysteryIsland: this.createExploreLink(mysteryIsland.area),
     neopiaCentral: 'a[href="/objects.phtml"]:first-child',
     tyrannia: this.createExploreLink(tyranniaJungle.area),
+    terrorMountain: this.createExploreLink(terrorMountain.area),
   };
 
   explore(link: string) {

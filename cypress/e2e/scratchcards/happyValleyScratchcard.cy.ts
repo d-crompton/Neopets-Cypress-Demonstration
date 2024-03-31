@@ -5,7 +5,7 @@ import { scratchcards } from "../../page_objects/scratchcards";
 
 describe("Happy Valley Scratchcard", () => {
   it("Happy Valley Scratchcard", () => {
-    explore.explore(explore.strings.terrorMountain);
+    explore.explore(explore.links.terrorMountain);
     cy.get(terrorMountain.selectors.liScratchcardKiosk).click();
     cy.get(terrorMountain.selectors.btnBuyScratchcard).click();
     // Throw an error if you've already purchased within cooldown

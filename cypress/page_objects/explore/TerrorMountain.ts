@@ -11,7 +11,7 @@ class TerrorMountain {
 
   selectors = {
     // Scratchcard Kiosk
-    liScratchcardKiosk: createLinkElement(this.area, "kiosk"),
+    liScratchcardKiosk: createLinkElement("kiosk"),
     btnBuyScratchcard: `form[method="post"] input[type="submit"]`,
     selectScratchcard: 'select[name="card_id"]',
     btnScratch: 'input[value="Scratch!"]',
