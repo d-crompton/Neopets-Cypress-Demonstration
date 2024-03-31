@@ -13,14 +13,12 @@ class Explore {
   }
 
   selectors = {
-    // aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
-    aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
+    // aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
     aTerrorMountain: 'a[href="/winter/index.phtml"]:first-of-type',
   };
 
   strings = {
-    // mysteryIsland: "MysteryIsland",
-    neopiaCentral: "NeopiaCentral",
+    // neopiaCentral: "NeopiaCentral",
     terrorMountain: "TerrorMountain",
   };
 
@@ -31,6 +29,7 @@ class Explore {
     lostDesert: this.createExploreLink(lostDesert.area),
     maraqua: this.createExploreLink(maraqua.area),
     mysteryIsland: this.createExploreLink(mysteryIsland.area),
+    neopiaCentral: 'a[href="/objects.phtml"]:first-child',
     tyrannia: this.createExploreLink(tyranniaJungle.area),
   };
 
