@@ -4,7 +4,7 @@ import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
 
 describe("tombola", () => {
   it("Play Tombola", () => {
-    explore.explore(explore.link.mysteryIsland);
+    explore.explore(explore.links.mysteryIsland);
     cy.get(mysteryIsland.selector.liTombola).click();
     cy.get(mysteryIsland.selector.inputPlayTomabola).click();
   });

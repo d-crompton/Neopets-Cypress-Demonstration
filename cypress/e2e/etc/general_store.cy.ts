@@ -5,7 +5,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Visit General Store", () => {
   it("Visit General Store", () => {
-    explore.explore(explore.link.neopiaCentral);
+    explore.explore(explore.links.neopiaCentral);
     cy.get(neopiaCentral.selector.liGeneralStore).click();
     let foodItem = neopiaCentral.selector.inputFoodItem;
     for (let i = 1; i <= 5; i++) {

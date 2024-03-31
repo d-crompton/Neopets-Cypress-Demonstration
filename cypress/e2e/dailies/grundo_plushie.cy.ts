@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Grundo Plushie", () => {
   it("Grundo Plushie", () => {
-    explore.explore(explore.link.faerieLand);
+    explore.explore(explore.links.faerieLand);
     cy.get(faerieLand.selectors.liGrundoPlushie).click();
     cy.get(faerieLand.selectors.btnTalkToPlushie).click();
     cy.get(faerieLand.selectors.pGrundoText)

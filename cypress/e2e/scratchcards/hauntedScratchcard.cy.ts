@@ -5,7 +5,7 @@ import { scratchcards } from "../../page_objects/scratchcards";
 
 describe("Buy and scratch Scratchcard", () => {
   it("Buy and scratch Scratchcard", () => {
-    explore.explore(explore.link.hauntedWoods);
+    explore.explore(explore.links.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liScratchcard).click();
     cy.get(hauntedWoods.selectors.btnBuyScratchcard).click();

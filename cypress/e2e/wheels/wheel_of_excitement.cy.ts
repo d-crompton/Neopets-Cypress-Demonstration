@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 
 describe("Wheel of Excitement", () => {
   it("Wheel of Excitement", () => {
-    explore.explore(explore.link.faerieLand);
+    explore.explore(explore.links.faerieLand);
     cy.get(faerieLand.selectors.liWheelOfExcitement).click();
     cy.wait(3000); // Wait for wheel to load
     cy.get(faerieLand.selectors.btnWheelSpin).click();
