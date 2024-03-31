@@ -5,9 +5,9 @@ class Maraqua {
 
   selectors = {
     // Ruins
-    liRuins: createLinkElement(this.area, "index_ruins"),
+    liRuins: createLinkElement("index_ruins"),
     // Underwater Fishing
-    liFishingVortex: createLinkElement(this.area, "fishing"),
+    liFishingVortex: createLinkElement("fishing"),
     btnReelLine: 'input[value^="Reel"]',
   };
 

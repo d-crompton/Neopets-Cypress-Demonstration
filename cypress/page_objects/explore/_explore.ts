@@ -3,6 +3,8 @@ import { navigationBar } from "../navigationBar";
 import { faerieLand } from "./FaerieLand";
 import { hauntedWoods } from "./HauntedWoods";
 import { lostDesert } from "./LostDesert";
+import { maraqua } from "./Maraqua";
+import { mysteryIsland } from "./MysteryIsland";
 import { tyranniaJungle } from "./TyranniaJungle";
 
 class Explore {
@@ -11,17 +13,13 @@ class Explore {
   }
 
   selectors = {
-    aLostDesert: 'a[href="/desert/index.phtml"]:first-of-type',
-    aMaraqua: 'a[href*="water"]:first-of-type',
-    aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
+    // aMysteryIsland: 'a[href="/island/index.phtml"]:nth-of-type(1)',
     aNeopiaCentral: 'a[href="/objects.phtml"]:first-child',
     aTerrorMountain: 'a[href="/winter/index.phtml"]:first-of-type',
   };
 
   strings = {
-    lostDesert: "LostDesert",
-    maraqua: "Maraqua",
-    mysteryIsland: "MysteryIsland",
+    // mysteryIsland: "MysteryIsland",
     neopiaCentral: "NeopiaCentral",
     terrorMountain: "TerrorMountain",
   };
@@ -31,6 +29,8 @@ class Explore {
     faerieLand: this.createExploreLink(faerieLand.area),
     hauntedWoods: this.createExploreLink(hauntedWoods.area),
     lostDesert: this.createExploreLink(lostDesert.area),
+    maraqua: this.createExploreLink(maraqua.area),
+    mysteryIsland: this.createExploreLink(mysteryIsland.area),
     tyrannia: this.createExploreLink(tyranniaJungle.area),
   };
 

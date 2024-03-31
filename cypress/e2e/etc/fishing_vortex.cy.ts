@@ -18,7 +18,7 @@ describe("Fishing Vortex", () => {
           cy.get(petCareWindow.selectors.activeButton).click();
           cy.get(petCareWindow.selectors.petStatusExit).click();
         }
-        explore.explore(explore.strings.maraqua);
+        explore.explore(explore.link.maraqua);
         cy.get(maraqua.selectors.liRuins).click();
         cy.get(maraqua.selectors.liFishingVortex).click();
         cy.get(maraqua.selectors.btnReelLine).click();
