@@ -12,6 +12,7 @@ import { faerieLand } from "../../page_objects/explore/FaerieLand";
 import { scratchcards } from "../../page_objects/scratchcards";
 import { lostDesert } from "../../page_objects/explore/LostDesert";
 import { brightvale } from "../../page_objects/explore/Brightvale";
+import { krawkIsland } from "../../page_objects/explore/KrawkIsland";
 
 describe("Dailies", () => {
   beforeEach(() => {
@@ -77,7 +78,7 @@ describe("Dailies", () => {
     }
   });
 
-  // Other Timed Activities
+  // Other Timed/Daily Activities
   it("Test Your Strength", () => {
     cy.visit(hauntedWoods.urls.testYourStrength);
     cy.wait(5000);
@@ -102,6 +103,11 @@ describe("Dailies", () => {
   it("Grundo Plushie", () => {
     cy.visit(faerieLand.urls.grundoPlushie);
     cy.get(faerieLand.selectors.btnTalkToPlushie).click();
+  });
+
+  it("Anchor Management", () => {
+    cy.visit(krawkIsland.urls.anchorManagement);
+    cy.get(krawkIsland.selectors.btnFire).click();
   });
 
   // Miscellaneous - Not necessarily timed but can quickly redeem
