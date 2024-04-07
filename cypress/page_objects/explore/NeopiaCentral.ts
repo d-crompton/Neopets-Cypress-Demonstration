@@ -25,6 +25,7 @@ class NeopiaCentral {
   // Recursive function used as cannot use loop "break" inside .then()
   collectMoneyTree(iteration: number, attempt: number): void {
     console.log(`Iteration: ${iteration}, Attempt: ${attempt}`);
+    cy.log(`Iteration: ${iteration}`);
     cy.get(neopiaCentral.selector.moneyTreeFirstDonate).click();
     cy.get(neopiaCentral.selector.btnMoneyTreeBack)
       .invoke("text")
