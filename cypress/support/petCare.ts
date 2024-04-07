@@ -26,6 +26,7 @@ export function feedPet() {
   cy.get(petCareWindow.selectors.feedPetButton).click();
   // Check if Pet is still hungry
   console.log("Checking if Neopet still hungry");
+  cy.wait(3000); // WAIT FOR WINDOW TO UPDATE
   cy.get(petCareWindow.selectors.resultStatusText)
     .invoke("text")
     .then((statusText) => {
