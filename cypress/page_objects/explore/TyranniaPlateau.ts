@@ -5,9 +5,11 @@ class TyranniaPlateau {
   area = "prehistoric";
 
   selectors = {
+    // Giant Omelette
     liOmelette: createLinkElement("omelette"),
     buttonOmelette: 'input[value="Grab some Omelette"]',
     txtSabreXName: "center p:nth-child(3) b",
+    imgSabreX: 'img[src*="dino_lupe"]',
   };
 
   textValues = {

@@ -9,6 +9,11 @@ describe("Claim Giant Omelette", () => {
     cy.get(tyranniaJungle.selectors.liPlateauLink).click();
     cy.get(tyranniaPlateau.selectors.liOmelette).click();
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
-    // Check if you have already taken the Omelette today, throw error if Sabre appears
+    // Check if either you've taken omelette today or its ran out
+    cy.get("body").then((body) => {
+      if (body.find(tyranniaPlateau.selectors.imgSabreX)) {
+        throw new Error("No omelette for you");
+      }
+    });
   });
 });
