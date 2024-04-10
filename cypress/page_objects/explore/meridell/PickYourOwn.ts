@@ -3,7 +3,6 @@ class PickYourOwn {
   selectors = {
     btnPlay: 'input[value*="Play!"]',
     // After game starts
-    // Start in Middle Left
     imgFieldPicture: 'img[src*="berry"]',
     imgArrowUp: 'img[src*="arrow_up"]',
     imgArrowDown: 'img[src*="arrow_down"]',
@@ -15,59 +14,145 @@ class PickYourOwn {
   };
 
   boobyPrizes = {
+    // Barbed Wire - id=15
+    // Rotten Berry - id=18
     "Pile of Dung": "id=19",
     "Half-eaten Berry": "id=20",
   };
 
+  locateAndMoveToStartMap() {
+    // Method split into two as cannot pass out mapString from .then()
+    cy.get("body").then((body) => {
+      // 1. Locate - Generate mapString based on present arrow buttons.
+      let mapString = "";
+      // Up Arrow
+      if (body.find(this.selectors.imgArrowUp).length == 1) {
+        mapString += "U";
+        console.log("Up arrow found " + mapString);
+      }
+      // Down Arrow
+      if (body.find(this.selectors.imgArrowDown).length == 1) {
+        mapString += "D";
+        console.log("Down arrow found " + mapString);
+      }
+      // Left Arrow
+      if (body.find(this.selectors.imgArrowLeft).length == 1) {
+        mapString += "L";
+        console.log("Left arrow found " + mapString);
+      }
+      // Right Arrow
+      if (body.find(this.selectors.imgArrowRight).length == 1) {
+        mapString += "R";
+        console.log("Right arrow found " + mapString);
+      }
+
+      // 2. Move to Start Location using mapString to determine next move
+      switch (mapString) {
+        // "DR" is the Top-Left cell and is the starting cell
+        case "Top-Mid":
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        case "Top-Right":
+          cy.get(this.selectors.imgArrowLeft).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        case "Mid-Left":
+          cy.get(this.selectors.imgArrowUp).click();
+          break;
+        case "Centre":
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        case "UDL": // Middle-Right
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        case "Bottom-Left":
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowUp).click();
+          break;
+        case "Bottom-Mid":
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        case "Bottom-Right":
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowUp).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          cy.get(this.selectors.imgArrowLeft).click();
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
   /*
-  Recursive Function
-  Arguments:
-  > Number of Maps visited
-  > Number of berries collected
-  > Number of berries currently in punnet
-  
   // Click map/Collect berry
   // If there's 6 berries in the punnet, end the game
   // Check that its not a booby prize
   // If so, chuck it (use its id for img in punnet?)
 
   // Move to next map (using next step obj)
-  // Figure out how many arrows are present. 
-
+  When clicking the item you want to discard, it will ask a prompt with OK/Cancel
   */
 
-  pickYourOwnGame(
-    mapsVisited: number,
-    berriesCollected: number,
-    berriesInPunnet: number
+  playPickYourOwnGame(
+    mapsVisited: number = 0, // See if this arg is necessary and remove is not
+    berriesCollected: number = 0,
+    berriesInPunnet: number = 0
   ) {
     // Collect Berry
     cy.get(this.selectors.imgFieldPicture).click();
     berriesCollected += 1;
     berriesInPunnet += 1;
-    // Check that its not a booby prize - Whilst you have less than 6 berries
     if (berriesInPunnet < 6) {
-      // Remove booby prize
+      // Check that its not a booby prize
+      // Remove booby prize, move onto next map
+      this.moveToNextMap(berriesCollected);
+      mapsVisited += 1;
+      cy.pause();
+      this.playPickYourOwnGame(mapsVisited, berriesCollected, berriesInPunnet);
     } else {
-      // When you have 6 and game ends
+      // When you have 6 game ends
+      // Collect Berries and Leave Farm
     }
   }
+
+  /* 
+  // Determine next move based on how many berries you've collected
+  // This will determine what map you are on (i.e., top-left is the 1st, bottom-right is the 9th)
+  > > V
+  V < <
+  > > X
+  */
+
+  moveToNextMap(berriesCollected: number) {
+    switch (berriesCollected) {
+      case 1: // Top-Left
+      case 2: // Top-Mid
+      case 7: // Bottom-Left
+      case 8: // Bottom-Mid
+        cy.get(this.selectors.imgArrowRight).click();
+        break;
+      case 3: // Top-Right
+      case 6: // Mid-Left
+        cy.get(this.selectors.imgArrowDown).click();
+        break;
+      case 4: // Mid-Right
+      case 5: // Centre
+        cy.get(this.selectors.imgArrowLeft).click();
+        break;
+      case 9: // Bottom-Right (last cell)
+        break;
+      default:
+        break;
+    }
+  }
+
+  // End of Class
 }
-
-/*
-When clicking the item you want to discard, it will ask a prompt with OK/Cancel
-Barbed Wire - id=15
-Rotten Berry - id=18
-Pile of Dung - id=19
-Half-eaten Berry - id=20
-*/
-
-/* 
-  Started in:
-  > Middle Left
-  > Center
-
-  // Maybe to work out where you are, use a string ("UDLR = Up, Down, Left, Right") to highlight available arrows
-*/
 
 export const pickYourOwn = new PickYourOwn();

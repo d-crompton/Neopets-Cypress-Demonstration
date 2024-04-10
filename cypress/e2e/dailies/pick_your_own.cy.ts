@@ -15,8 +15,12 @@ describe("Pick Your Own", () => {
     cy.get(meridell.selectors.liPickYourOwn).click();
     // Click to Play!
     cy.get(pickYourOwn.selectors.btnPlay).click();
+    cy.pause();
     /* 
     Game
     */
+    pickYourOwn.locateAndMoveToStartMap();
+    pickYourOwn.playPickYourOwnGame();
+    cy.pause();
   });
 });
