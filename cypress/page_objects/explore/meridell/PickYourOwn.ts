@@ -14,7 +14,8 @@ class PickYourOwn {
   };
 
   boobyPrizes = {
-    // Barbed Wire - id=15
+    "Bit of Barbed Wire": "id=15",
+    // Old Boot - id=17
     // Rotten Berry - id=18
     "Pile of Dung": "id=19",
     "Half-eaten Berry": "id=20",
@@ -111,7 +112,12 @@ class PickYourOwn {
     berriesInPunnet += 1;
     if (berriesInPunnet < 6) {
       // Check that its not a booby prize
+      /*
+      use obj.hasOwnProperty('itemName') - https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript
+      to check if it is in the booby prize object. If so use the associated ID to find the img in the punnet
+      */
       // Remove booby prize, move onto next map
+      // Remove one from berries in Punnet (if its taken out)
       this.moveToNextMap(berriesCollected);
       mapsVisited += 1;
       cy.pause();
@@ -119,6 +125,7 @@ class PickYourOwn {
       this.playPickYourOwnGame(mapsVisited, berriesCollected, berriesInPunnet);
     } else {
       // When you have 6 game ends
+      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
       // Collect Berries and Leave Farm
     }
   }
@@ -148,8 +155,6 @@ class PickYourOwn {
         cy.get(this.selectors.imgArrowLeft).click();
         break;
       case 9: // Bottom-Right (last cell)
-        break;
-      default:
         break;
     }
   }
