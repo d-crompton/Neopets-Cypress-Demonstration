@@ -10,6 +10,7 @@ class TyranniaPlateau {
     buttonOmelette: 'input[value="Grab some Omelette"]',
     txtSabreXName: "center p:nth-child(3) b",
     imgSabreX: 'img[src*="dino_lupe"]',
+    bOmeletteGoneText: "center b", // Appears under SabreX image, confirm what appears on success or already claimed today
   };
 
   textValues = {
@@ -17,6 +18,7 @@ class TyranniaPlateau {
   };
 
   strings = {
+    omeletteHasGone: "The Omelette has Gone!!!",
     OmeletteUrl: "prehistoric/omelette.phtml",
   };
 }

@@ -37,7 +37,7 @@ describe("Dailies", () => {
   });
 
   it("Giant Omelette", () => {
-    cy.visit(tyranniaPlateau.strings.OmeletteUrl).click();
+    cy.visit(tyranniaPlateau.strings.omeletteUrl).click();
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
   });
 
