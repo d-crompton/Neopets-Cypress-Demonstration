@@ -8,18 +8,14 @@ class TyranniaPlateau {
     // Giant Omelette
     liOmelette: createLinkElement("omelette"),
     buttonOmelette: 'input[value="Grab some Omelette"]',
-    txtSabreXName: "center p:nth-child(3) b",
+    imgOmelette: 'img[src*="omelette"]',
     imgSabreX: 'img[src*="dino_lupe"]',
-    bOmeletteGoneText: "center b", // Appears under SabreX image, confirm what appears on success or already claimed today
-  };
-
-  textValues = {
-    sabreXName: "Sabre-X",
+    bOmeletteGoneText: "center b",
   };
 
   strings = {
     omeletteHasGone: "The Omelette has Gone!!!",
-    OmeletteUrl: "prehistoric/omelette.phtml",
+    omeletteUrl: "prehistoric/omelette.phtml",
   };
 }
 
