@@ -49,17 +49,17 @@ class PickYourOwn {
       // 2. Move to Start Location using mapString to determine next move
       switch (mapString) {
         // "DR" is the Top-Left cell and is the starting cell
-        case "Top-Mid":
+        case "DLR": // Top-Mid
           cy.get(this.selectors.imgArrowLeft).click();
           break;
-        case "Top-Right":
+        case "DL": // Top-Right
           cy.get(this.selectors.imgArrowLeft).click();
           cy.get(this.selectors.imgArrowLeft).click();
           break;
-        case "Mid-Left":
+        case "UDR": // Mid-Left
           cy.get(this.selectors.imgArrowUp).click();
           break;
-        case "Centre":
+        case "UDLR": // Centre
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowLeft).click();
           break;
@@ -68,22 +68,20 @@ class PickYourOwn {
           cy.get(this.selectors.imgArrowLeft).click();
           cy.get(this.selectors.imgArrowLeft).click();
           break;
-        case "Bottom-Left":
+        case "UR": // Bottom-Left
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowUp).click();
           break;
-        case "Bottom-Mid":
+        case "ULR": // Bottom-Mid
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowLeft).click();
           break;
-        case "Bottom-Right":
+        case "UL": // Bottom-Right
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowUp).click();
           cy.get(this.selectors.imgArrowLeft).click();
           cy.get(this.selectors.imgArrowLeft).click();
-          break;
-        default:
           break;
       }
     });
@@ -104,6 +102,9 @@ class PickYourOwn {
     berriesCollected: number = 0,
     berriesInPunnet: number = 0
   ) {
+    cy.log(
+      `Maps Visited: ${mapsVisited}, Berries Collected: ${berriesCollected}, Berries In Punnet ${berriesInPunnet}`
+    );
     // Collect Berry
     cy.get(this.selectors.imgFieldPicture).click();
     berriesCollected += 1;
@@ -114,6 +115,7 @@ class PickYourOwn {
       this.moveToNextMap(berriesCollected);
       mapsVisited += 1;
       cy.pause();
+      // Start cycle again
       this.playPickYourOwnGame(mapsVisited, berriesCollected, berriesInPunnet);
     } else {
       // When you have 6 game ends
