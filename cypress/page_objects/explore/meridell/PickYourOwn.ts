@@ -3,7 +3,7 @@ class PickYourOwn {
   selectors = {
     btnPlay: 'input[value*="Play!"]',
     // After game starts
-    imgFieldPicture: 'img[src*="berry"]',
+    imgFieldPicture: 'img[src*="berry_farm"]',
     imgArrowUp: 'img[src*="arrow_up"]',
     imgArrowDown: 'img[src*="arrow_down"]',
     imgArrowLeft: 'img[src*="arrow_left"]',
