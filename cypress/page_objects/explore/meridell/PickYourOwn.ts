@@ -116,6 +116,21 @@ class PickYourOwn {
       use obj.hasOwnProperty('itemName') - https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript
       to check if it is in the booby prize object. If so use the associated ID to find the img in the punnet
       */
+      cy.get(this.selectors.bYouFoundA)
+        .invoke("text")
+        .then((text) => {
+          let foundItem = text.replace("You found a ", "").trim(); // Should remove the text at the front, then trim the formatting at the end
+          // FOR TESTING
+          console.log("+++" + foundItem + "+++");
+          console.log(this.boobyPrizes.hasOwnProperty(foundItem));
+          console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
+          // =====
+          cy.pause();
+          if (this.boobyPrizes.hasOwnProperty(foundItem)) {
+            console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
+            cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
+          }
+        });
       // Remove booby prize, move onto next map
       // Remove one from berries in Punnet (if its taken out)
       this.moveToNextMap(berriesCollected);
@@ -128,6 +143,8 @@ class PickYourOwn {
       cy.get(this.selectors.btnCollectBerriesAndLeave).click();
       // Collect Berries and Leave Farm
     }
+
+    //ALTERNATIVE GAME END - THE MAP IMAGE DOES NOT APPEAR BUT THE LEAVE BUTTON DOES
   }
 
   /* 

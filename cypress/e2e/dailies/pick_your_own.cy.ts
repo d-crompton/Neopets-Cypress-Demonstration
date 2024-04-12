@@ -15,10 +15,11 @@ describe("Pick Your Own", () => {
     cy.get(meridell.selectors.liPickYourOwn).click();
     // Click to Play!
     cy.get(pickYourOwn.selectors.btnPlay).click();
-    cy.pause();
+    // cy.pause();
     /* 
     Game
     */
+    cy.pause();
     pickYourOwn.locateAndMoveToStartMap();
     pickYourOwn.playPickYourOwnGame();
     cy.pause();
