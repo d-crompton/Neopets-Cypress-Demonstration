@@ -113,6 +113,6 @@ describe("Dailies", () => {
   // Miscellaneous - Not necessarily timed but can quickly redeem
   it("Money Tree", () => {
     cy.visit(neopiaCentral.urls.moneyTree);
-    cy.get(neopiaCentral.selector.moneyTreeFirstDonate).click();
+    cy.get(neopiaCentral.selectors.moneyTreeFirstDonate).click();
   });
 });
