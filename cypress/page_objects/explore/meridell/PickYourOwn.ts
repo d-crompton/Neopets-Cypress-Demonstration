@@ -16,7 +16,7 @@ class PickYourOwn {
   boobyPrizes = {
     "Bit of Barbed Wire": "id=15",
     // Old Boot - id=17
-    // Rotten Berry - id=18
+    "Rotten Berry": "id=18",
     "Pile of Dung": "id=19",
     "Half-eaten Berry": "id=20",
   };
@@ -111,37 +111,29 @@ class PickYourOwn {
     berriesCollected += 1;
     berriesInPunnet += 1;
     if (berriesInPunnet < 6) {
-      // Check that its not a booby prize
-      /*
-      use obj.hasOwnProperty('itemName') - https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript
-      to check if it is in the booby prize object. If so use the associated ID to find the img in the punnet
-      */
       cy.get(this.selectors.bYouFoundA)
         .invoke("text")
         .then((text) => {
-          let foundItem = text.replace("You found a ", "").trim(); // Should remove the text at the front, then trim the formatting at the end
+          let foundItem = text.replace("You found a ", "").trim();
           // FOR TESTING
-          console.log("+++" + foundItem + "+++");
-          console.log(this.boobyPrizes.hasOwnProperty(foundItem));
-          console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
           // =====
-          cy.pause();
           if (this.boobyPrizes.hasOwnProperty(foundItem)) {
+            // Discard booby prize from punnet
             console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
             cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
+            berriesInPunnet = berriesInPunnet - 1;
           }
         });
-      // Remove booby prize, move onto next map
-      // Remove one from berries in Punnet (if its taken out)
       this.moveToNextMap(berriesCollected);
       mapsVisited += 1;
-      cy.pause();
       // Start cycle again
+      cy.log(`Starting Cycle Again - Berries in Punnet is ${berriesInPunnet}`);
       this.playPickYourOwnGame(mapsVisited, berriesCollected, berriesInPunnet);
     } else {
-      // When you have 6 game ends
+      // When you have 6 berries in punnet game ends
+      console.log("END BERRIES IN PUNNET: " + berriesInPunnet);
+      cy.log("6 berries in punnet, ending game");
       cy.get(this.selectors.btnCollectBerriesAndLeave).click();
-      // Collect Berries and Leave Farm
     }
 
     //ALTERNATIVE GAME END - THE MAP IMAGE DOES NOT APPEAR BUT THE LEAVE BUTTON DOES

@@ -19,9 +19,7 @@ describe("Pick Your Own", () => {
     /* 
     Game
     */
-    cy.pause();
     pickYourOwn.locateAndMoveToStartMap();
     pickYourOwn.playPickYourOwnGame();
-    cy.pause();
   });
 });
