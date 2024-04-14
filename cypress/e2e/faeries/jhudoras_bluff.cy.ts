@@ -5,6 +5,7 @@ import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
 
 describe("Jhudora's Bluff", () => {
   it("Jhudora's Bluff", () => {
+    // Accepting Quest
     explore.explore(explore.links.faerieLand);
     cy.get(faerieLand.selectors.liJhudora).click();
     cy.get(faerieLand.selectors.btnJhudoraAccept1).click();
@@ -12,8 +13,7 @@ describe("Jhudora's Bluff", () => {
     cy.get(faerieLand.selectors.bJhudoraItem)
       .invoke("text")
       .then((itemName) => {
-        // Go get item
-        console.log(itemName);
+        // Buying Item
         cy.visit(neopiaCentral.urls.shopWizardSearch);
         cy.get(neopiaCentral.selectors.inputShopWizard).type(itemName);
         cy.get(neopiaCentral.selectors.divWizardSubmit).click();
@@ -21,18 +21,10 @@ describe("Jhudora's Bluff", () => {
         cy.get(neopiaCentral.selectors.aShopFirstResult).click();
         cy.get(neopiaCentral.selectors.aHighlightedItem).click();
       });
-    cy.pause();
 
-    /* Getting Item
-      https://www.neopets.com/shops/wizard.phtml 
-      #shopwizard < input for item name
-      #submit_wizard < magnifying glass button
-      .wizard-results-grid li:nth-child(2) a < first result row with a player's shop (and its link)
-      div[style*="center"] a < item highlighted at the top of the shop
-    */
-
-    /* Returning to Jhudora
-      // Yes I have it
-      */
+    // Redeeming Quest
+    explore.explore(explore.links.faerieLand);
+    cy.get(faerieLand.selectors.liJhudora).click();
+    cy.get(faerieLand.selectors.btnJhudoraSubmit).click();
   });
 });

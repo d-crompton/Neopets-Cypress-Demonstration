@@ -17,7 +17,7 @@ class NeopiaCentral {
     inputShopWizard: "#shopwizard",
     divWizardSubmit: "#submit_wizard",
     aShopFirstResult: ".wizard-results-grid li:nth-child(2) a",
-    aHighlightedItem: 'div[style*="center"] a', // Item highlighted at the top of the shop
+    aHighlightedItem: 'div[style*="center"] a img', // Item highlighted at the top of the shop
   };
 
   strings = {

@@ -21,6 +21,7 @@ class FaerieLand {
     btnJhudoraAccept1: `input[class='button-default__2020 button-green__2020']`,
     btnJhudoraAccept2: `.popup-body__2020  input[value*="Accept!"]`,
     bJhudoraItem: "#dark-container p:first-of-type b",
+    btnJhudoraSubmit: 'input[value*="Yes"]',
   };
 
   strings = {
