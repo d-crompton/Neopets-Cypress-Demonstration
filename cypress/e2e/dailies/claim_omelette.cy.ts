@@ -11,7 +11,8 @@ describe("Claim Giant Omelette", () => {
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
     cy.get("body").then((body) => {
       // If Sabre-X appears, one of the two errors will appear
-      if (body.find(tyranniaPlateau.selectors.bSabreX)) {
+      // Confirm error doesn't throw when successfully getting omelette
+      if (body.find(tyranniaPlateau.selectors.imgSabreX)) {
         throw new Error(`Error`);
       }
     });
