@@ -10,8 +10,10 @@ describe("Claim Giant Omelette", () => {
     cy.get(tyranniaPlateau.selectors.liOmelette).click();
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
     cy.get("body").then((body) => {
-      // Already claimed today
-      // Omelette is gone
+      // If Sabre-X appears, one of the two errors will appear
+      if (body.find(tyranniaPlateau.selectors.bSabreX)) {
+        throw new Error(`Error`);
+      }
     });
   });
 });
