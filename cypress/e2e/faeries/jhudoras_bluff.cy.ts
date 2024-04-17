@@ -2,6 +2,7 @@
 import { explore } from "../../page_objects/explore/_explore";
 import { faerieLand } from "../../page_objects/explore/FaerieLand";
 import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
+import { oldNavBar } from "../../page_objects/navigationBarOld";
 
 describe("Jhudora's Bluff", () => {
   it("Jhudora's Bluff", () => {
@@ -23,7 +24,9 @@ describe("Jhudora's Bluff", () => {
       });
 
     // Redeeming Quest
-    explore.explore(explore.links.faerieLand);
+    cy.get(oldNavBar.selectors.imgExploreLink).click();
+    cy.get(explore.links.faerieLand).click();
+    // Replace this explore with the classic site layout
     cy.get(faerieLand.selectors.liJhudora).click();
     cy.get(faerieLand.selectors.btnJhudoraSubmit).click();
   });
