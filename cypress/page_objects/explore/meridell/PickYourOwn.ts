@@ -104,7 +104,7 @@ class PickYourOwn {
   ) {
     // Collect Berry
     cy.get(this.selectors.imgFieldPicture).click();
-    berriesCollected += 1; // Remove if not used
+    berriesCollected += 1;
     berriesInPunnet += 1;
     if (berriesInPunnet < 6) {
       cy.get(this.selectors.bYouFoundA)
@@ -115,8 +115,10 @@ class PickYourOwn {
           // =====
           if (this.boobyPrizes.hasOwnProperty(foundItem)) {
             // Discard booby prize from punnet
-            console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
             cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
+            berriesInPunnet -= 1;
+            console.log("Discarded junk");
+            console.log(`Berries in punnet: ${berriesInPunnet}`);
           }
         });
       this.moveToNextMap(berriesCollected);
