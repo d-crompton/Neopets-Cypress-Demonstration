@@ -99,16 +99,12 @@ class PickYourOwn {
   */
 
   playPickYourOwnGame(
-    mapsVisited: number = 0, // See if this arg is necessary and remove is not
     berriesCollected: number = 0,
     berriesInPunnet: number = 0
   ) {
-    cy.log(
-      `Maps Visited: ${mapsVisited}, Berries Collected: ${berriesCollected}, Berries In Punnet ${berriesInPunnet}`
-    );
     // Collect Berry
     cy.get(this.selectors.imgFieldPicture).click();
-    berriesCollected += 1;
+    berriesCollected += 1; // Remove if not used
     berriesInPunnet += 1;
     if (berriesInPunnet < 6) {
       cy.get(this.selectors.bYouFoundA)
@@ -121,14 +117,12 @@ class PickYourOwn {
             // Discard booby prize from punnet
             console.log(`a[href*='${this.boobyPrizes[foundItem]}']`);
             cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
-            berriesInPunnet = berriesInPunnet - 1;
           }
         });
       this.moveToNextMap(berriesCollected);
-      mapsVisited += 1;
       // Start cycle again
       cy.log(`Starting Cycle Again - Berries in Punnet is ${berriesInPunnet}`);
-      this.playPickYourOwnGame(mapsVisited, berriesCollected, berriesInPunnet);
+      this.playPickYourOwnGame(berriesCollected, berriesInPunnet);
     } else {
       // When you have 6 berries in punnet game ends
       console.log("END BERRIES IN PUNNET: " + berriesInPunnet);
