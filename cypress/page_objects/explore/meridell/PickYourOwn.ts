@@ -100,44 +100,34 @@ class PickYourOwn {
 
   playPickYourOwnGame(
     berriesCollected: number = 0,
-    berriesInPunnet: number = 0
+    berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
   ) {
     // Collect Berry
     cy.get(this.selectors.imgFieldPicture).click();
     berriesCollected += 1;
-    berriesInPunnet += 1;
-    if (berriesInPunnet < 6) {
-      cy.get(this.selectors.bYouFoundA)
-        .invoke("text")
-        .then((text) => {
-          let foundItem = text.replace("You found a ", "").trim();
-          // FOR TESTING
-          // =====
-          if (this.boobyPrizes.hasOwnProperty(foundItem)) {
-            // Discard booby prize from punnet
-            cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
-            berriesInPunnet -= 1;
-            console.log("Discarded junk");
-            console.log(`Berries in punnet: ${berriesInPunnet}`);
-          }
-        });
-      this.moveToNextMap(berriesCollected);
-      // Start cycle again
-      cy.log(`Starting Cycle Again - Berries in Punnet is ${berriesInPunnet}`);
-      this.playPickYourOwnGame(berriesCollected, berriesInPunnet);
-    } else {
-      // When you have 6 berries in punnet game ends
-      console.log("END BERRIES IN PUNNET: " + berriesInPunnet);
-      cy.log("6 berries in punnet, ending game");
-      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
-    }
-
+    // If Berries Collected = 9 (meaning one on every square) end game
+    // COUNT BERRIES IN PUNNET, IF 6 END GAME
+    // cy.get(this.selectors.btnCollectBerriesAndLeave).click();
     //ALTERNATIVE GAME END - THE MAP IMAGE DOES NOT APPEAR BUT THE LEAVE BUTTON DOES
+    // Check when you have 6 berries in punnet whether the map disappears immediately or not
+    // Add a return afterwards or a bool to say the game has ended so the code after this is not run
+    cy.get(this.selectors.bYouFoundA)
+      .invoke("text")
+      .then((text) => {
+        let foundItem = text.replace("You found a ", "").trim();
+        if (this.boobyPrizes.hasOwnProperty(foundItem)) {
+          // Discard booby prize from punnet
+          cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
+          console.log("Discarded junk");
+        }
+      });
+    this.moveToNextMap(berriesCollected);
+    // Start cycle again
+    this.playPickYourOwnGame(berriesCollected, berriesInPunnet);
   }
 
   /* 
-  // Determine next move based on how many berries you've collected
-  // This will determine what map you are on (i.e., top-left is the 1st, bottom-right is the 9th)
+  // Determine next move based on how many berries you've collected (reflects what map you're on, starting top-left)
   > > V
   V < <
   > > X
