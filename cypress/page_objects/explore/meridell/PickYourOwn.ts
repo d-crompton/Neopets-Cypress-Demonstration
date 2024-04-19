@@ -10,6 +10,7 @@ class PickYourOwn {
     imgArrowRight: 'img[src*="arrow_right"]',
     bYouFoundA: "center center b",
     tablePunnet: 'table[style*="punnet"]',
+    aPunnetItem: 'table[style*="punnet"] a',
     btnCollectBerriesAndLeave: 'input[value*="Collect"]',
   };
 
@@ -102,15 +103,22 @@ class PickYourOwn {
     berriesCollected: number = 0,
     berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
   ) {
-    // Collect Berry
-    cy.get(this.selectors.imgFieldPicture).click();
+    // Once 6 berries are retrieved, game ends the map disappears and so do the punnet links (replaced with images)
+    // Try to click the field picture, if it's not there (causing an error) exit the game
+    try {
+      cy.get(this.selectors.imgFieldPicture).click();
+    } catch {
+      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
+      return;
+    }
+
+    // End game if all berries are collected - NEED TO TEST
     berriesCollected += 1;
-    // If Berries Collected = 9 (meaning one on every square) end game
-    // COUNT BERRIES IN PUNNET, IF 6 END GAME
-    // cy.get(this.selectors.btnCollectBerriesAndLeave).click();
-    //ALTERNATIVE GAME END - THE MAP IMAGE DOES NOT APPEAR BUT THE LEAVE BUTTON DOES
-    // Check when you have 6 berries in punnet whether the map disappears immediately or not
-    // Add a return afterwards or a bool to say the game has ended so the code after this is not run
+    if (berriesCollected == 9) {
+      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
+      return;
+    }
+    // Throwing away collected booby prizes
     cy.get(this.selectors.bYouFoundA)
       .invoke("text")
       .then((text) => {
@@ -121,8 +129,9 @@ class PickYourOwn {
           console.log("Discarded junk");
         }
       });
-    this.moveToNextMap(berriesCollected);
+
     // Start cycle again
+    this.moveToNextMap(berriesCollected);
     this.playPickYourOwnGame(berriesCollected, berriesInPunnet);
   }
 
