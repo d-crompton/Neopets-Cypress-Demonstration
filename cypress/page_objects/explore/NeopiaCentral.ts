@@ -12,8 +12,6 @@ class NeopiaCentral {
     btnMoneyTreeInventory: 'a[href*="inventory"] button',
     btnMoneyTreeBack: 'a[href*="donations"] button',
     // Shop Wizard
-    //   .wizard-results-grid li:nth-child(2) a < first result row with a player's shop (and its link)
-    //   div[style*="center"] a < item highlighted at the top of the shop
     inputShopWizard: "#shopwizard",
     divWizardSubmit: "#submit_wizard",
     aShopFirstResult: ".wizard-results-grid li:nth-child(2) a",
