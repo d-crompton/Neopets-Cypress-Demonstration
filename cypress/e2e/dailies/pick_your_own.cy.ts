@@ -21,5 +21,6 @@ describe("Pick Your Own", () => {
     */
     pickYourOwn.locateAndMoveToStartMap();
     pickYourOwn.playPickYourOwnGame();
+    cy.get(pickYourOwn.selectors.btnCollectBerriesAndLeave).click();
   });
 });

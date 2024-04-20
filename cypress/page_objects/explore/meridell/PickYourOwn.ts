@@ -30,22 +30,18 @@ class PickYourOwn {
       // Up Arrow
       if (body.find(this.selectors.imgArrowUp).length == 1) {
         mapString += "U";
-        console.log("Up arrow found " + mapString);
       }
       // Down Arrow
       if (body.find(this.selectors.imgArrowDown).length == 1) {
         mapString += "D";
-        console.log("Down arrow found " + mapString);
       }
       // Left Arrow
       if (body.find(this.selectors.imgArrowLeft).length == 1) {
         mapString += "L";
-        console.log("Left arrow found " + mapString);
       }
       // Right Arrow
       if (body.find(this.selectors.imgArrowRight).length == 1) {
         mapString += "R";
-        console.log("Right arrow found " + mapString);
       }
 
       // 2. Move to Start Location using mapString to determine next move
@@ -89,16 +85,6 @@ class PickYourOwn {
     });
   }
 
-  /*
-  // Click map/Collect berry
-  // If there's 6 berries in the punnet, end the game
-  // Check that its not a booby prize
-  // If so, chuck it (use its id for img in punnet?)
-
-  // Move to next map (using next step obj)
-  When clicking the item you want to discard, it will ask a prompt with OK/Cancel
-  */
-
   playPickYourOwnGame(
     berriesCollected: number = 0,
     berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
@@ -108,16 +94,12 @@ class PickYourOwn {
     try {
       cy.get(this.selectors.imgFieldPicture).click();
     } catch {
-      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
       return;
     }
 
     // End game if all berries are collected - NEED TO TEST
     berriesCollected += 1;
-    if (berriesCollected == 9) {
-      cy.get(this.selectors.btnCollectBerriesAndLeave).click();
-      return;
-    }
+    if (berriesCollected == 9) return;
     // Throwing away collected booby prizes
     cy.get(this.selectors.bYouFoundA)
       .invoke("text")
@@ -162,8 +144,6 @@ class PickYourOwn {
         break;
     }
   }
-
-  // End of Class
 }
 
 export const pickYourOwn = new PickYourOwn();

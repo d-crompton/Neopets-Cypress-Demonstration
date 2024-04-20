@@ -8,5 +8,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+  redirectionLimit: 40,
   watchForFileChanges: false,
 });
