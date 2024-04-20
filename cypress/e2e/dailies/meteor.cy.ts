@@ -11,8 +11,8 @@ describe("Giant Meteor", () => {
           throw new Error("Error - The Meteor is gone");
         }
       });
-    cy.get(kredulor.selectors.btnMeteor).click();
-    // Select Action
-    // Submit
+    cy.get(kredulor.selectors.btnMeteorTakeChance).click();
+    cy.get(kredulor.selectors.selectMeteor).select(1);
+    cy.get(kredulor.selectors.btnMeteorSubmit).click();
   });
 });
