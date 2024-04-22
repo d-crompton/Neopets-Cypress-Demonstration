@@ -22,6 +22,13 @@ class FaerieLand {
     btnJhudoraAccept2: `.popup-body__2020  input[value*="Accept!"]`,
     bJhudoraItem: "#dark-container p:first-of-type b",
     btnJhudoraSubmit: 'input[value*="Yes"]',
+    // Faerie Caverns
+    liCaverns: createLinkElement("caverns"),
+    btnCavernsEnter: 'input[value="Enter"]',
+    btnCavernsLeft: 'input[value="Left"]',
+    btnCavernsRight: 'input[value="Right"]',
+    btnSeeWhatYouFound: "GET SELECTOR VALUE",
+    btnReturn: 'input[value*="Return"]',
   };
 
   strings = {
