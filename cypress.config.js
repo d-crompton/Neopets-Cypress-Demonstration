@@ -7,7 +7,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    redirectionLimit: 40,
   },
-  redirectionLimit: 40,
   watchForFileChanges: false,
 });

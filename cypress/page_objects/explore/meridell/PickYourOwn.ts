@@ -16,7 +16,8 @@ class PickYourOwn {
 
   boobyPrizes = {
     "Bit of Barbed Wire": "id=15",
-    // Old Boot - id=17
+    "Piece of Wool": "id=16",
+    "Old Boot": "id=17",
     "Rotten Berry": "id=18",
     "Pile of Dung": "id=19",
     "Half-eaten Berry": "id=20",
@@ -86,8 +87,8 @@ class PickYourOwn {
   }
 
   playPickYourOwnGame(
-    berriesCollected: number = 0,
-    berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
+    berriesCollected: number = 0
+    // berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
   ) {
     // Once 6 berries are retrieved, game ends the map disappears and so do the punnet links (replaced with images)
     // Try to click the field picture, if it's not there (causing an error) exit the game
@@ -97,9 +98,6 @@ class PickYourOwn {
       return;
     }
 
-    // End game if all berries are collected - NEED TO TEST
-    berriesCollected += 1;
-    if (berriesCollected == 9) return;
     // Throwing away collected booby prizes
     cy.get(this.selectors.bYouFoundA)
       .invoke("text")
@@ -112,9 +110,13 @@ class PickYourOwn {
         }
       });
 
+    // End game if all berries are collected
+    berriesCollected += 1;
+    if (berriesCollected == 9) return;
+
     // Start cycle again
     this.moveToNextMap(berriesCollected);
-    this.playPickYourOwnGame(berriesCollected, berriesInPunnet);
+    this.playPickYourOwnGame(berriesCollected);
   }
 
   /* 
