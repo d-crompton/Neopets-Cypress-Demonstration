@@ -2,7 +2,6 @@
 class PickYourOwn {
   selectors = {
     btnPlay: 'input[value*="Play!"]',
-    // After game starts
     imgFieldPicture: 'img[src*="berry_farm"]',
     imgArrowUp: 'img[src*="arrow_up"]',
     imgArrowDown: 'img[src*="arrow_down"]',
@@ -86,11 +85,7 @@ class PickYourOwn {
     });
   }
 
-  playPickYourOwnGame(
-    berriesCollected: number = 0
-    // berriesInPunnet: number = 0 // May become unneccessary as cannot adjust inside the .then()
-  ) {
-    // Once 6 berries are retrieved, game ends the map disappears and so do the punnet links (replaced with images)
+  playPickYourOwnGame(berriesCollected: number = 0) {
     // Try to click the field picture, if it's not there (causing an error) exit the game
     try {
       cy.get(this.selectors.imgFieldPicture).click();
@@ -104,9 +99,7 @@ class PickYourOwn {
       .then((text) => {
         let foundItem = text.replace("You found a ", "").trim();
         if (this.boobyPrizes.hasOwnProperty(foundItem)) {
-          // Discard booby prize from punnet
           cy.get(`a[href*='${this.boobyPrizes[foundItem]}']`).click();
-          console.log("Discarded junk");
         }
       });
 
@@ -118,13 +111,6 @@ class PickYourOwn {
     this.moveToNextMap(berriesCollected);
     this.playPickYourOwnGame(berriesCollected);
   }
-
-  /* 
-  // Determine next move based on how many berries you've collected (reflects what map you're on, starting top-left)
-  > > V
-  V < <
-  > > X
-  */
 
   moveToNextMap(berriesCollected: number) {
     switch (berriesCollected) {
