@@ -1,6 +1,6 @@
 // PO for the Map of Neopia page that appears when pressing Explore on nav bar
 import { navigationBar } from "../navigationBar";
-import { faerieLand } from "./FaerieLand";
+import { faerieLand } from "./faerieland/FaerieLand";
 import { hauntedWoods } from "./HauntedWoods";
 import { lostDesert } from "./LostDesert";
 import { maraqua } from "./Maraqua";

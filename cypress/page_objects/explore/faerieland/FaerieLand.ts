@@ -1,4 +1,4 @@
-import { createLinkElement } from "../../support/navigation";
+import { createLinkElement } from "../../../support/navigation";
 
 class FaerieLand {
   area = "faerieland";
@@ -24,11 +24,6 @@ class FaerieLand {
     btnJhudoraSubmit: 'input[value*="Yes"]',
     // Faerie Caverns
     liCaverns: createLinkElement("caverns"),
-    btnCavernsEnter: 'input[value="Enter"]',
-    btnCavernsLeft: 'input[value="Left"]',
-    btnCavernsRight: 'input[value="Right"]',
-    btnSeeWhatYouFound: "GET SELECTOR VALUE",
-    btnReturn: 'input[value*="Return"]',
   };
 
   strings = {

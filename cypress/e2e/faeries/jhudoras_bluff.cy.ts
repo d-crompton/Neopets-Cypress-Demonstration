@@ -1,6 +1,6 @@
 // Jhudora's Bluff Faerie Quest - Faerieland
 import { explore } from "../../page_objects/explore/_explore";
-import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { faerieLand } from "../../page_objects/explore/faerieland/FaerieLand";
 import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
 import { oldNavBar } from "../../page_objects/navigationBarOld";
 
