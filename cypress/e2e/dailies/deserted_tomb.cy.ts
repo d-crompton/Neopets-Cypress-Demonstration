@@ -4,7 +4,7 @@ import { explore } from "../../page_objects/explore/_explore";
 // Deserted Tomb - Lost City of Geraptiku, Mystery Island
 describe("Deserted Tomb", () => {
   it("Deserted Tomb", () => {
-    explore.explore(mysteryIsland.area);
+    explore.explore(explore.links.mysteryIsland);
     cy.get(mysteryIsland.selectors.liGeraptiku).click();
     cy.get(mysteryIsland.selectors.liDesertedTomb).click();
     // Inside Tomb
