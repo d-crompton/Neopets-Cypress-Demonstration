@@ -10,8 +10,11 @@ import { faerieLand } from "../../page_objects/explore/faerieland/FaerieLand";
 
 describe("Faerie Caverns", () => {
   it("Faerie Caverns", () => {
-    explore.explore(faerieLand.area);
+    explore.explore(explore.links.faerieLand);
     cy.get(faerieLand.selectors.liCaverns).click();
     cy.get(faerieCaverns.selectors.btnCavernsEnter).click();
+    // Exploring...
+    faerieCaverns.exploreCaverns();
+    cy.pause();
   });
 });

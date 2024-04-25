@@ -4,6 +4,7 @@ class FaerieCaverns {
     btnCavernsEnter: 'input[value="Enter"]',
     // Cavern Split - Left or Right
     imgCavePaths: 'img[src*="cave_paths"]',
+    imgCave2Paths: 'img[src*="cave_2paths"]',
     btnCavernsLeft: 'input[value="Left"]',
     btnCavernsRight: 'input[value="Right"]',
     // Dead End
@@ -13,17 +14,24 @@ class FaerieCaverns {
   };
 
   exploreCaverns() {
-    // Images
-    // CAVE PATHS - Select randomly left or right
-    // CAVE DEAD END - Return to Faerieland (return function)
     cy.get("body").then((body) => {
-      // CAVE PATHS
-      if (body.find(this.selectors.imgCavePaths).length === 1) {
-        // Randomly select left or right
+      // Left or Right
+      if (
+        body.find(this.selectors.imgCavePaths).length === 1 ||
+        body.find(this.selectors.imgCave2Paths).length === 1
+      ) {
+        if (Math.random() >= 0.5) {
+          cy.log("Going Left");
+          cy.get(this.selectors.btnCavernsLeft).click();
+        } else {
+          cy.log("Going right");
+          cy.get(this.selectors.btnCavernsRight).click();
+        }
         this.exploreCaverns();
       }
-      // CAVE DEAD END
+      // Dead End
       if (body.find(this.selectors.imgCaveDeadEnd).length === 1) {
+        cy.log("Dead end");
         return;
       }
     });
