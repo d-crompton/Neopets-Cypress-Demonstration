@@ -2,7 +2,7 @@
 import { homePage } from "../page_objects/homepage/homepage";
 import { petCareWindow } from "../page_objects/homepage/petCareWindow";
 import { isPetHungry } from "../support/petCare";
-import { feedPet } from "../support/petCare";
+import { feedPetRecursive } from "../support/petCare";
 
 describe("Feed All Neopets", () => {
   it("Feed pet", () => {
@@ -20,7 +20,7 @@ describe("Feed All Neopets", () => {
         })
         .then(() => {
           if (boolIsPetHungry) {
-            feedPet();
+            feedPetRecursive();
             cy.get(petCareWindow.selectors.petStatusExit).click();
           } else {
             // Pet not hungry - moving onto next Neopet
