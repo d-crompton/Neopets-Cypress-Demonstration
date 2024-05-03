@@ -5,13 +5,9 @@ import { petCareWindow } from "../page_objects/homepage/petCareWindow";
 // === Feeding Pet === //
 // Check if Pet is "hungry" - their hunger status would be in red text
 export function isPetHungry(statusText: string): boolean {
-  console.log("isPetHungry statusText: " + statusText);
-  // Once arrays created, check using the arrays (.includes?)
   if (hungerStatuses.notHungryValues.includes(statusText)) {
-    console.log("isPetHungry returning FALSE");
     return false;
   } else {
-    console.log("isPetHungry returning TRUE");
     return true;
   }
 }
@@ -20,8 +16,8 @@ export function isPetHungry(statusText: string): boolean {
 export function feedPetOnce() {
   // Assumes Pet Care window is open
   cy.get(petCareWindow.selectors.feedButton).click();
-  cy.get(petCareWindow.selectors.feedItemButton).eq(0).click();
-  cy.get(petCareWindow.selectors.feedPetButton).click();
+  cy.get(petCareWindow.selectors.petCareItemGridItem).eq(0).click();
+  cy.get(petCareWindow.selectors.btnPetCareUseItem).click();
 }
 
 // Feed Pet - Recursive function that checks whether a pet is hungry, feeds it and then checks again
@@ -46,5 +42,3 @@ export function feedPetRecursive() {
       }
     });
 }
-
-// === Grooming Pet === //
