@@ -9,11 +9,13 @@ class FaerieCaverns {
     btnCavernsRight: 'input[value="Right"]',
     // Dead End
     imgCaveDeadEnd: 'img[src*="cave_dead_end"]',
-    btnSeeWhatYouFound: "GET SELECTOR VALUE",
+    // Treasure
+    imgTreasure: 'img[src*="success"]',
+    btnSeeWhatYouFound: `input[value="Click to see what you've found"]`,
     btnReturn: 'input[value*="Return"]',
   };
 
-  exploreCaverns() {
+  exploreCaverns(): void {
     cy.get("body").then((body) => {
       // Left or Right
       if (
@@ -32,6 +34,12 @@ class FaerieCaverns {
       // Dead End
       if (body.find(this.selectors.imgCaveDeadEnd).length === 1) {
         cy.log("Dead end");
+        return;
+      }
+      // Treasure
+      if (body.find(this.selectors.imgTreasure).length === 1) {
+        cy.log("Treasure!");
+        cy.get(this.selectors.btnSeeWhatYouFound).click();
         return;
       }
     });
