@@ -1,3 +1,4 @@
+import { navigationBar } from "../../page_objects/navigationBar";
 import { loginUsingSession } from "../../support/login";
 import { questFunctions } from "../../support/questFunctions";
 
@@ -14,10 +15,10 @@ describe("Daily Quests", () => {
   // }
 
   it("TEST", () => {
-    // questFunctions.groomAPet();
-    // questFunctions.redeemQuest();
-    questFunctions.claimDailyReward();
+    cy.get(navigationBar.selectors.divQuestIcon).click();
+    questFunctions.identifyAndCompleteQuest();
+    cy.pause();
+    questFunctions.redeemQuest();
+    cy.pause();
   });
 });
-
-// 5 quests each day

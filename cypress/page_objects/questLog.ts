@@ -3,10 +3,11 @@ class QuestLog {
   selectors = {
     // Daily Quests
     divQuests: "#QuestLogQuests", // Parent elem each quest is in
-    divQuestTitle: ".ql-quest-title",
     divDailyBonus: "#QuestLogDailyAlert",
     // Top Quest
     divTopQuest: ".questlog-quest:first-of-type",
+    divTopQuestTitle: ".questlog-quest:first-of-type .ql-quest-title",
+    divTopQuestTaskNum: ".questlog-quest:first-of-type .ql-task-num",
     btnClaimReward: `.questlog-quest:first-of-type button[onClick*="claim"]`,
     btnBackToQuests: "#QuestLogRewardPopup .button-yellow__2020",
   };
