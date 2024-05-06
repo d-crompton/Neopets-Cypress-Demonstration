@@ -1,13 +1,6 @@
 // Functions used to run quests for quest log
 
-// Need function to redeem quests
-
 /* Possible Quests/Necessary Functions
-# Purchase an Item (Purchase 3 items)
--- Purchase item(s) from any Neopian Shop - Purchase 1
-# Spin the Wheel (Wheel of Misfortune)
-# Groom a Pet - (With Grooming item) - Can groom from the homepage pet care window
-# Feed a Pet
 # Play a Game - Yet to find a game I can easily automate
 */
 
@@ -19,6 +12,7 @@ import { petCareWindow } from "../page_objects/homepage/petCareWindow";
 import { explore } from "../page_objects/explore/_explore";
 import { neopiaCentral } from "../page_objects/explore/NeopiaCentral";
 import { oldNavBar } from "../page_objects/navigationBarOld";
+import { hauntedWoods } from "../page_objects/explore/HauntedWoods";
 
 class QuestFunctions {
   identifyAndCompleteQuest() {
@@ -28,18 +22,17 @@ class QuestFunctions {
         console.log(questTitle);
         switch (questTitle) {
           case "Feed a Pet":
-            // Feed a pet
             this.feedAPet();
             break;
           case "Groom a Pet":
-            // Groom a pet
             this.groomAPet();
             break;
           case "Purchase an Item":
             this.purchaseItems();
             break;
           case "Spin the Wheel":
-          // Spin the wheel
+            this.spinTheWheel();
+            break;
         }
       });
   }
@@ -77,6 +70,16 @@ class QuestFunctions {
         }
       });
     cy.get(oldNavBar.selectors.aHomePage).click();
+  }
+
+  spinTheWheel() {
+    // May need to update if other wheels are included
+    explore.explore(explore.links.hauntedWoods);
+    cy.get(hauntedWoods.selectors.liFairground).click();
+    cy.get(hauntedWoods.selectors.liWheelOfMisfortune).click();
+    cy.get(hauntedWoods.selectors.btnSpinTheWheel).click();
+    cy.wait(5000);
+    cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
   }
 
   redeemQuest() {
