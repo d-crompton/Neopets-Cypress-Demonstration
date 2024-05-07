@@ -8,13 +8,14 @@ describe("Claim Giant Omelette", () => {
     explore.explore(explore.links.tyrannia);
     cy.get(tyranniaJungle.selectors.liPlateauLink).click();
     cy.get(tyranniaPlateau.selectors.liOmelette).click();
-    cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
+    // Check error doesn't appear or another error when the omelette is there
     cy.get("body").then((body) => {
-      // If Sabre-X appears, one of the two errors will appear
-      // Confirm error doesn't throw when successfully getting omelette
-      if (body.find(tyranniaPlateau.selectors.imgSabreX)) {
-        throw new Error(`Error`);
+      if (body.find(tyranniaPlateau.selectors.bOmeletteGoneText)) {
+        throw new Error("Omelette is gone!!!");
       }
     });
+    // If neither error is thrown, collect the omelette
+    cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
+    // Already claimed today error appears after you try to collect it?
   });
 });

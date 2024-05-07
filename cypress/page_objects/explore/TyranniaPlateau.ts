@@ -11,13 +11,11 @@ class TyranniaPlateau {
     imgOmelette: 'img[src*="omelette"]',
     imgSabreX: 'img[src*="dino_lupe"]',
     bOmeletteGoneText: "center b",
-    // bApproachOmelette - You approach the massive omelette...
-    // Appears when you successfully get the omelette
-    // Appears when you have already claimed today
     bApproachOmelette: "center > p:nth-of-type(1) b",
     // bSabreX
     // Does not appear if you successfully get the omelette
-    // Appears when you have already claimed today
+    // Appears when you have already claimed today!!!
+    // Does not appear if the omelette is gone
     bSabreX: "center > p:nth-of-type(2) b",
     // bManageToTakeASlice
     // Appears when you successfully get the omelette
