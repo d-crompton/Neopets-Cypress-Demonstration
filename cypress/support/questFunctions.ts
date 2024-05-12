@@ -82,13 +82,25 @@ class QuestFunctions {
   }
 
   spinTheWheel() {
-    // May need to update if other wheels are included
-    explore.explore(explore.links.hauntedWoods);
-    cy.get(hauntedWoods.selectors.liFairground).click();
-    cy.get(hauntedWoods.selectors.liWheelOfMisfortune).click();
-    cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
-    cy.wait(9000);
-    cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
+    cy.get(questLog.selectors.divTopQuestDesc)
+      .invoke("text")
+      .then((descText) => {
+        // Retrieve wheel name from description (5th word - "Spin the wheel of X")
+        const wheelName = descText.split(" ")[4];
+        // Spin the chosen wheel
+        switch (wheelName) {
+          case "Misfortune":
+            explore.explore(explore.links.hauntedWoods);
+            cy.get(hauntedWoods.selectors.liFairground).click();
+            cy.get(hauntedWoods.selectors.liWheelOfMisfortune).click();
+            cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
+            cy.wait(9000);
+            cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
+            break;
+          default:
+            throw new Error("Wheel not recognised");
+        }
+      });
   }
 
   redeemQuest() {
