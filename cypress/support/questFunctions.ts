@@ -2,6 +2,9 @@
 
 /* Possible Quests/Necessary Functions
 # Play a Game - Yet to find a game I can easily automate
+- Kass Basher - Cannot get a score so cannot submit
+# Customise a Pet
+# Spin the Wheel (Wheel of Excitement)
 */
 
 import { questLog } from "../page_objects/questLog";
@@ -33,6 +36,11 @@ class QuestFunctions {
           case "Spin the Wheel":
             this.spinTheWheel();
             break;
+          case "Play a Game":
+            cy.pause();
+            break;
+          default:
+            throw new Error("Unidentified quest!");
         }
       });
   }
@@ -41,6 +49,7 @@ class QuestFunctions {
     cy.get(navigationBar.selectors.divLogo).click();
     cy.get(homePage.selectors.selectPet.replace("X", "1")).click();
     feedPetOnce();
+    cy.get(petCareWindow.selectors.resultStatusExitButton).click();
   }
 
   groomAPet() {
@@ -77,8 +86,8 @@ class QuestFunctions {
     explore.explore(explore.links.hauntedWoods);
     cy.get(hauntedWoods.selectors.liFairground).click();
     cy.get(hauntedWoods.selectors.liWheelOfMisfortune).click();
-    cy.get(hauntedWoods.selectors.btnSpinTheWheel).click();
-    cy.wait(5000);
+    cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
+    cy.wait(9000);
     cy.get(hauntedWoods.selectors.divWheelMisfortuneCanvas).click();
   }
 

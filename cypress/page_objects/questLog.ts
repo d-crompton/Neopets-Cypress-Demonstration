@@ -12,7 +12,7 @@ class QuestLog {
     btnBackToQuests: "#QuestLogRewardPopup .button-yellow__2020",
   };
 
-  url = "";
+  url = "questlog/";
 }
 
 /* Possible Daily Quests
