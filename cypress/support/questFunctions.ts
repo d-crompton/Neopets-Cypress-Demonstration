@@ -1,10 +1,9 @@
-// Functions used to run quests for quest log
+// Functions used to complete quests and redeem for quest log
 
-/* Possible Quests/Necessary Functions
-# Play a Game - Yet to find a game I can easily automate
-- Kass Basher - Cannot get a score so cannot submit
-# Customise a Pet
-# Spin the Wheel (Wheel of Excitement)
+/*
+TO DO -
+> Customise Neopet - Need to look into drag/drop (customiseAPet())
+> Play Game - Need to find a game that I can automate via Cypress
 */
 
 import { questLog } from "../page_objects/questLog";
@@ -16,6 +15,7 @@ import { explore } from "../page_objects/explore/_explore";
 import { neopiaCentral } from "../page_objects/explore/NeopiaCentral";
 import { oldNavBar } from "../page_objects/navigationBarOld";
 import { hauntedWoods } from "../page_objects/explore/HauntedWoods";
+import { tyranniaJungle } from "../page_objects/explore/TyranniaJungle";
 
 class QuestFunctions {
   identifyAndCompleteQuest() {
@@ -30,6 +30,10 @@ class QuestFunctions {
           case "Groom a Pet":
             this.groomAPet();
             break;
+          case "Customise a Pet":
+            // TO DO
+            cy.pause();
+            break;
           case "Purchase an Item":
             this.purchaseItems();
             break;
@@ -37,6 +41,7 @@ class QuestFunctions {
             this.spinTheWheel();
             break;
           case "Play a Game":
+            // TO DO
             cy.pause();
             break;
           default:
@@ -61,23 +66,28 @@ class QuestFunctions {
     cy.get(petCareWindow.selectors.resultStatusExitButton).click();
   }
 
+  // TO DO
+  customiseAPet() {
+    cy.get(navigationBar.selectors.divLogo).click();
+    cy.pause();
+  }
+
   purchaseItems() {
     // Retrieve how many items are needed, go to General Store and purchase that many items
     cy.get(questLog.selectors.divTopQuestTaskNum)
       .invoke("text")
       .then((text) => {
         let numNeeded = parseInt(text[2]);
-        console.log(numNeeded); // DELETE AFTER
         explore.explore(explore.links.neopiaCentral);
         cy.get(neopiaCentral.selectors.liGeneralStore).click();
         for (let i = 1; i <= numNeeded; i++) {
           cy.get(
             neopiaCentral.selectors.inputFoodItem.replace("X", i.toString())
           ).click();
-          // Include small random wait?
           cy.get(neopiaCentral.selectors.btnBackToGeneralStore).click();
         }
       });
+    // Return to home page as old nav bar doesn't have quest log icon
     cy.get(oldNavBar.selectors.aHomePage).click();
   }
 
@@ -89,6 +99,14 @@ class QuestFunctions {
         const wheelName = descText.split(" ")[4];
         // Spin the chosen wheel
         switch (wheelName) {
+          case "Mediocrity":
+            explore.explore(explore.links.tyrannia);
+            cy.get(tyranniaJungle.selectors.liWheelMediocrity).click();
+            cy.get(tyranniaJungle.selectors.pWheelMediocrityText);
+            cy.get(tyranniaJungle.selectors.btnSpinWheelMediocrity).click();
+            cy.wait(9000);
+            cy.get(tyranniaJungle.selectors.divWheelMediocrityCanvas).click();
+            break;
           case "Misfortune":
             explore.explore(explore.links.hauntedWoods);
             cy.get(hauntedWoods.selectors.liFairground).click();
@@ -104,7 +122,6 @@ class QuestFunctions {
   }
 
   redeemQuest() {
-    // Return to Quest Log
     cy.get(navigationBar.selectors.divQuestIcon).click();
     cy.get(questLog.selectors.btnClaimReward).click();
     cy.get(questLog.selectors.btnBackToQuests).click();
