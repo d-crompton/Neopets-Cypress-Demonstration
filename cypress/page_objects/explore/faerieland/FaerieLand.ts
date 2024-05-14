@@ -1,4 +1,4 @@
-import { createLinkElement } from "../../support/navigation";
+import { createLinkElement } from "../../../support/navigation";
 
 class FaerieLand {
   area = "faerieland";
@@ -22,6 +22,8 @@ class FaerieLand {
     btnJhudoraAccept2: `.popup-body__2020  input[value*="Accept!"]`,
     bJhudoraItem: "#dark-container p:first-of-type b",
     btnJhudoraSubmit: 'input[value*="Yes"]',
+    // Faerie Caverns
+    liCaverns: createLinkElement("caverns"),
   };
 
   strings = {

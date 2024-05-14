@@ -1,5 +1,5 @@
 // Healing Springs - Faerieland - 30 minute cooldown
-import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { faerieLand } from "../../page_objects/explore/faerieland/FaerieLand";
 import { explore } from "../../page_objects/explore/_explore";
 
 describe("Visit Healing Springs", () => {
