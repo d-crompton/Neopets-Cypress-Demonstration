@@ -8,9 +8,9 @@ class TyranniaPlateau {
     // Giant Omelette
     liOmelette: createLinkElement("omelette"),
     buttonOmelette: 'input[value="Grab some Omelette"]',
-    imgOmelette: 'img[src*="omelette"]',
-    imgSabreX: 'img[src*="dino_lupe"]',
-    bOmeletteGoneText: "center b",
+    imgOmelette: 'img[src*="omelette.gif"]',
+    imgSabreX: 'img[src*="dino_lupe.gif"]',
+    bOmeletteGoneText: "center:first-of-type b",
     bApproachOmelette: "center > p:nth-of-type(1) b",
     // bSabreX
     // Does not appear if you successfully get the omelette
