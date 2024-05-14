@@ -9,8 +9,5 @@ describe("Faerie Caverns", () => {
     cy.get(faerieCaverns.selectors.btnCavernsEnter).click();
     // Exploring...
     faerieCaverns.exploreCaverns();
-    // cy.pause();
-    // Return to Faerieland after hitting Dead End or Treasure
-    cy.get(faerieCaverns.selectors.btnReturn).click();
   });
 });
