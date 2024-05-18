@@ -17,10 +17,12 @@ describe("Claim Giant Omelette", () => {
     // Attempt to claim some omelette
     cy.get(tyranniaPlateau.selectors.buttonOmelette).click();
     // Check if you've already taken some omelette today
-    cy.get("body").then((body) => {
-      if (body.find(tyranniaPlateau.selectors.imgSabreX)) {
-        throw new Error("You've already taken some omelette today!");
-      }
-    });
+    cy.get(tyranniaPlateau.selectors.pLowerText)
+      .invoke("text")
+      .then((text) => {
+        if (text.split(" ")[0] === "Sabre-X") {
+          throw new Error("You've already taken some omelette today!");
+        }
+      });
   });
 });
