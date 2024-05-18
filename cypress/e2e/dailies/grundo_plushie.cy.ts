@@ -1,5 +1,5 @@
 // The Discarded Magical Blue Grundo Plushie of Prosperity - Faerieland
-import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { faerieLand } from "../../page_objects/explore/faerieland/FaerieLand";
 import { explore } from "../../page_objects/explore/_explore";
 
 describe("Grundo Plushie", () => {

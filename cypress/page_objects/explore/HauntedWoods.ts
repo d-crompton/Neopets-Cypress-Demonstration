@@ -14,6 +14,10 @@ class HauntedWoods {
     liTestYourStrength: createLinkElement("strtest/index"),
     btnTestYourStrength: "#process_strtest",
     bOops: `div[style*='color: darkred;'] b:first-of-type`,
+    // Wheel of Misfortune
+    liWheelOfMisfortune: createLinkElement("wheel"),
+    btnSpinTheWheel: "#wheelButtonSpin",
+    divWheelMisfortuneCanvas: "#wheelCanvas",
   };
 
   strings = {

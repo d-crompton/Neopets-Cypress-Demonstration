@@ -1,9 +1,10 @@
 // PO for the Map of Neopia page that appears when pressing Explore on nav bar
 import { navigationBar } from "../navigationBar";
-import { faerieLand } from "./FaerieLand";
+import { faerieLand } from "./faerieland/FaerieLand";
 import { hauntedWoods } from "./HauntedWoods";
 import { lostDesert } from "./LostDesert";
 import { maraqua } from "./Maraqua";
+import { meridell } from "./meridell/Meridell";
 import { mysteryIsland } from "./MysteryIsland";
 import { terrorMountain } from "./TerrorMountain";
 import { tyranniaJungle } from "./TyranniaJungle";
@@ -18,6 +19,7 @@ class Explore {
     faerieLand: this.createExploreLink(faerieLand.area),
     hauntedWoods: this.createExploreLink(hauntedWoods.area),
     lostDesert: this.createExploreLink(lostDesert.area),
+    meridell: this.createExploreLink(meridell.area),
     maraqua: this.createExploreLink(maraqua.area),
     mysteryIsland: this.createExploreLink(mysteryIsland.area),
     neopiaCentral: 'a[href="/objects.phtml"]:first-child',

@@ -8,7 +8,7 @@ import { tyranniaPlateau } from "../../page_objects/explore/TyranniaPlateau";
 import { tyranniaJungle } from "../../page_objects/explore/TyranniaJungle";
 import { neopiaCentral } from "../../page_objects/explore/NeopiaCentral";
 import { mysteryIsland } from "../../page_objects/explore/MysteryIsland";
-import { faerieLand } from "../../page_objects/explore/FaerieLand";
+import { faerieLand } from "../../page_objects/explore/faerieland/FaerieLand";
 import { scratchcards } from "../../page_objects/scratchcards";
 import { lostDesert } from "../../page_objects/explore/LostDesert";
 import { brightvale } from "../../page_objects/explore/Brightvale";
@@ -113,6 +113,6 @@ describe("Dailies", () => {
   // Miscellaneous - Not necessarily timed but can quickly redeem
   it("Money Tree", () => {
     cy.visit(neopiaCentral.urls.moneyTree);
-    cy.get(neopiaCentral.selector.moneyTreeFirstDonate).click();
+    cy.get(neopiaCentral.selectors.moneyTreeFirstDonate).click();
   });
 });

@@ -1,4 +1,4 @@
-import { createLinkElement } from "../../support/navigation";
+import { createLinkElement } from "../../../support/navigation";
 
 class FaerieLand {
   area = "faerieland";
@@ -16,6 +16,14 @@ class FaerieLand {
     liGrundoPlushie: createLinkElement("tdmbgpop"),
     btnTalkToPlushie: `input[value^='Talk']`,
     pGrundoText: "#container__2020 p",
+    // Jhudora's Bluff
+    liJhudora: createLinkElement("darkfaerie"),
+    btnJhudoraAccept1: `input[class='button-default__2020 button-green__2020']`,
+    btnJhudoraAccept2: `.popup-body__2020  input[value*="Accept!"]`,
+    bJhudoraItem: "#dark-container p:first-of-type b",
+    btnJhudoraSubmit: 'input[value*="Yes"]',
+    // Faerie Caverns
+    liCaverns: createLinkElement("caverns"),
   };
 
   strings = {
