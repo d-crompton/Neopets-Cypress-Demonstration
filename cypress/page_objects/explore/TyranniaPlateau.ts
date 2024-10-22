@@ -7,7 +7,7 @@ class TyranniaPlateau {
   selectors = {
     // Giant Omelette
     liOmelette: createLinkElement("omelette"),
-    buttonOmelette: 'input[value="Grab some Omelette"]',
+    buttonOmelette: 'button[onclick*="Omelette"]',
     imgOmelette: 'img[src*="omelette.gif"]',
     pLowerText: "center p:nth-of-type(2)",
   };
